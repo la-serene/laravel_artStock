@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'user_id' => fake()->$userID,
             'username' => fake()->userName(),
             'password' => fake()->password(8, 12),
-            'first_name' => fake()->firstName($gender),
+            'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'bio' => fake()->optional()->paragraph(2),
             'date_of_birth' => fake()->dateTimeBetween('30 years', '-10 years'),
