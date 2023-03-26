@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -17,22 +16,22 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $userID = strtoupper(fake()->lexify() . fake()->numerify('####'));
+        $gender = fake()->randomElement([0, 1]);
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'user_id' => fake()->$userID,
+            'username' => fake()->userName(),
+            'password' => fake()->password(8, 12),
+            'first_name' => fake()->firstName($gender),
+            'last_name' => fake()->lastName(),
+            'bio' => fake()->optional()->paragraph(2),
+            'date_of_birth' => fake()->dateTimeBetween('30 years', '-10 years'),
+            'email' => fake()->safeEmail(),
+            'gender' => fake()->$gender,
+            'phone_number' => fake()->optional()->phoneNumber(),
+            'avatar' => fake()->optional()->image(asset('assets/user_avatar'),360, 360),
+            'payment_method' => fake()->optional()->creditCardType(),
+            'permission' => null
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
     }
 }
