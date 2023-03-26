@@ -5,11 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/app.css?v=2">
-    <link rel="stylesheet" href="../assets/icon/themify-icons-font/themify-icons/themify-icons.css?v=3">
+    <link rel="stylesheet" href="{{ asset('/css/app.css?v=2') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/icon/themify-icons-font/themify-icons/themify-icons.css?v=2') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 
-    <title>Welcome page!</title>
+    <title>{{ $title }}</title>
 </head>
 <body>
 <div id="main" style="width: 100%; height: 3000px; background-color: salmon">
@@ -18,7 +18,7 @@
             <div id="navbar_leftElem" class="flex-box">
                 <div id="leftElem_brand">
                     <a href="#">
-                        <img src="../assets/logo/cover-removebg-preview%20(1).png" alt="" height="90px">
+                        <img src="resources/assets/logo/cover-removebg-preview (1).png" alt="" height="90px">
                     </a>
                 </div>
                 <div id="leftElem_navbar" class="flex-box">
@@ -55,13 +55,7 @@
             <p class="text-center color_white letter-space">dipping in the cave of art..</p>
         </div>
     </div>
-    <div id="newsfeed">
-        <div id="leftFeed">
-            
-        </div>
-        <div id="feed" class=""></div>
-        <div id="rightFeed"></div>
-    </div>
+    @include('layout.newsfeed')
 </div>
 </body>
 </html>
