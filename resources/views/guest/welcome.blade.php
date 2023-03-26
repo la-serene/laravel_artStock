@@ -18,7 +18,7 @@
             <div id="navbar_leftElem" class="flex-box">
                 <div id="leftElem_brand">
                     <a href="#">
-                        <img src="resources/assets/logo/cover-removebg-preview (1).png" alt="" height="90px">
+                        <img src="{{ asset('/assets/logo/cover-removebg-preview (1).png') }}" alt="" height="90px">
                     </a>
                 </div>
                 <div id="leftElem_navbar" class="flex-box">
