@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.color_white {
+    color: white !important;
+}
+
+.upCase {
+    text-transform: uppercase !important;
+}
+
+.flex-box {
+    display: flex !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.letter-space {
+    letter-spacing: 1px;
+}
+
+#main {
+    overflow: auto;
+}
+
+#intro {
+    background-image: url("../assets/bg/Polish_20230319_172553650.png");
+    padding-top: 52.6%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+#navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+#leftElem_navbar {
+    align-items: center;
+}
+
+#navbar_leftElem {
+    justify-content: center;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.nav-btn {
+    text-transform: uppercase;
+    margin: 0 12px;
+    font-size: 16px;
+}
+
+#navbar_rightElem {
+    align-items: center;
+    width: 16%;
+    display: flex;
+    justify-content: space-around;
+}
+
+#searchbar {
+    width: 36%;
+    position: absolute;
+    top: 60%;
+    left: 32%;
+}
+
+#leftFeed {
+    width: 20%;
+}
