@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Faker\Provider\Person as PersonAlias;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,21 +17,22 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        $userID = strtoupper(fake()->lexify() . fake()->numerify('####'));
-        $gender = fake()->randomElement([0, 1]);
+        $faker = \Faker\Factory::create('en_GB');
+        $userID = strtoupper($faker->lexify() . $faker->numerify('####'));
+        $gender = $faker->randomElement([0, 1]);
         return [
-            'user_id' => fake()->$userID,
-            'username' => fake()->userName(),
-            'password' => fake()->password(8, 12),
-            'first_name' => fake()->firstName(),
-            'last_name' => fake()->lastName(),
-            'bio' => fake()->optional()->paragraph(2),
-            'date_of_birth' => fake()->dateTimeBetween('30 years', '-10 years'),
-            'email' => fake()->safeEmail(),
-            'gender' => fake()->$gender,
-            'phone_number' => fake()->optional()->phoneNumber(),
-            'avatar' => fake()->optional()->image(asset('assets/user_avatar'),360, 360),
-            'payment_method' => fake()->optional()->creditCardType(),
+            'user_id' => $userID,
+            'username' => $faker->userName(),
+            'password' => $faker->password(8, 12),
+            'first_name' => $faker->firstName($gender ? PersonAlias::GENDER_MALE : PersonAlias::GENDER_FEMALE),
+            'last_name' => $faker->lastName(),
+            'bio' => $faker->optional()->paragraph(2),
+            'date_of_birth' => $faker->dateTimeBetween('-30 years', '-10 years'),
+            'email' => $faker->safeEmail(),
+            'gender' => $gender,
+            'phone_number' => $faker->phoneNumber(),
+            'avatar' => $faker->optional()->imageUrl(360, 360),
+            'payment_method' => $faker->optional()->creditCardType(),
             'permission' => null
         ];
     }
