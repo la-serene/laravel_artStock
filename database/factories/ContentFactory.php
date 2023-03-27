@@ -18,7 +18,7 @@ class ContentFactory extends Factory
     public function definition(): array
     {
         $faker = \Faker\Factory::create('en_GB');
-        $content_id = 'CT' . $faker->text( 4) . $faker->randomNumber(4);
+        $content_id = 'CT' . $faker->word() . $faker->randomNumber(4);
         return [
             'content_id' => $content_id,
             'media' => $faker->imageUrl(360, 360),

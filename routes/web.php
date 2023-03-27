@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,13 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    if (!session()->has('username')) {
-        return view('welcome', [
-            'title' => 'artStock - Unleash your creative'
-        ]);
-    }
-});
+Route::controller(LoginController::class)
+    ->group(function () {
+       Route::get('/', 'index')->name('index');
+    });
 
 Route::fallback(function () {
    return view('fallback');
