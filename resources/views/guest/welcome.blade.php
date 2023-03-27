@@ -23,7 +23,7 @@
                 </div>
                 <div id="leftElem_navbar" class="flex-box">
                     <div class="btn nav-btn color_white">
-                        <a href="#">Home</a>
+                        <a href="#">Dashboard</a>
                     </div>
                     <div class="btn nav-btn color_white">
                         <a href="#">Latest</a>
@@ -43,8 +43,12 @@
                 </div>
             </div>
             <div id="navbar_rightElem">
-                <div class="btn btn-primary">Sign In</div>
-                <div class="btn btn-success">Sign Up</div>
+                <a href="#">
+                    <div class="btn btn-primary">Sign In</div>
+                </a>
+                <a href="#">
+                    <div class="btn btn-success">Sign Up</div>
+                </a>
             </div>
         </div>
         <div id="searchbar">
