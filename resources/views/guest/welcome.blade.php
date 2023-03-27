@@ -43,10 +43,10 @@
                 </div>
             </div>
             <div id="navbar_rightElem">
-                <a href="#">
+                <a href="{{ route('auth.login') }}">
                     <div class="btn btn-primary">Sign In</div>
                 </a>
-                <a href="#">
+                <a href="{{ route('auth.register') }}">
                     <div class="btn btn-success">Sign Up</div>
                 </a>
             </div>
