@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (!session()->has('username')) {
-        return view('guest.welcome', [
+        return view('welcome', [
             'title' => 'artStock - Unleash your creative'
         ]);
     }
