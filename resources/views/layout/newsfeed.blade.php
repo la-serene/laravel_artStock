@@ -1,7 +1,7 @@
 <div id="newsfeed">
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-6">
+        <div class="col"></div>
+        <div class="col-8" style="background-color: #4a5568">
             <table width="100%" border="1">
                 <tr>
                     <th>ID</th>

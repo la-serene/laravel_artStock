@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(LoginController::class)
     ->group(function () {
-       Route::get('/', 'index')->name('index');
+        Route::get('/', 'index')->name('index');
+        Route::get('/signin', 'signin')->name('signin');
+        Route::get('/signup', 'signup')->name('signup');
     });
 
 Route::fallback(function () {

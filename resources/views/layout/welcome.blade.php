@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('/assets/icon/themify-icons-font/themify-icons/themify-icons.css?v=2') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('/css/app.css?v=2') }}">
-    <title>{{ $title }}</title>
-</head>
-<body>
-<div id="main" style="width: 100%; height: 3000px; background-color: salmon">
+@extends('layout.master')
+@section('intro')
     <div id="intro">
         <div id="navbar">
             <div id="navbar_leftElem" class="flex-box">
                 <div id="leftElem_brand">
-                    <a href="#">
+                    <a href="{{ route('index') }}">
                         <img src="{{ asset('/assets/logo/cover-removebg-preview (1).png') }}" alt="" height="90px">
                     </a>
                 </div>
@@ -43,8 +30,13 @@
                 </div>
             </div>
             <div id="navbar_rightElem">
-                <div class="btn btn-primary">Sign In</div>
-                <div class="btn btn-success">Sign Up</div>
+                <a href="/signin">
+                    <div class="btn btn-primary">Sign In</div>
+                </a>
+                <a href="/signup">
+                    <div class="btn btn-success">Sign Up</div>
+
+                </a>
             </div>
         </div>
         <div id="searchbar">
@@ -55,7 +47,5 @@
             <p class="text-center color_white letter-space">dipping in the cave of art..</p>
         </div>
     </div>
-    @include('layout.newsfeed')
-</div>
-</body>
-</html>
+@endsection
+

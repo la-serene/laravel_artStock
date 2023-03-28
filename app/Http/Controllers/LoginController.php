@@ -6,7 +6,6 @@ use App\Models\Content;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -15,7 +14,7 @@ class LoginController extends Controller
         $title = 'Unleash your creativity';
         $posts = Content::all();
 
-        return view('welcome', [
+        return view('layout.welcome', [
             'title' => $title,
             'posts' => $posts,
             'count' => 0
