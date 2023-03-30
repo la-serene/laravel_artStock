@@ -13,10 +13,8 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-<div id="main" style="width: 100%; height: 3000px; background-color: salmon">
-    @yield('intro')
+    @yield('welcome')
     @include('layout.newsfeed')
     @include('layout.footer')
-</div>
 </body>
 </html>

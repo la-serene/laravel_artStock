@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('payment_method')->nullable();
             $table->smallInteger('permission')->nullable()->default(null);
+            $table->string('remember_token')->nullable()->default(null);
             $table->timestamps();
         });
     }

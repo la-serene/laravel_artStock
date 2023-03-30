@@ -31,10 +31,6 @@ html {
     letter-spacing: 1px;
 }
 
-#main {
-    overflow: auto;
-}
-
 #intro {
     background-image: url("../assets/bg/Polish_20230319_172553650.png");
     padding-top: 52.6%;

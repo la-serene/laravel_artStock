@@ -1,4 +1,0 @@
-<form action="">
-    @csrf
-
-</form>

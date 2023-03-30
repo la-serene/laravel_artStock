@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\content;
-use App\Http\Requests\StorecontentRequest;
-use App\Http\Requests\UpdatecontentRequest;
+use App\Http\Requests\StoreContentRequest;
+use App\Http\Requests\UpdateContentRequest;
 
 class ContentController extends Controller
 {
@@ -27,7 +27,7 @@ class ContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorecontentRequest $request)
+    public function store(StoreContentRequest $request)
     {
         //
     }
@@ -51,7 +51,7 @@ class ContentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatecontentRequest $request, content $content)
+    public function update(UpdateContentRequest $request, content $content)
     {
         //
     }

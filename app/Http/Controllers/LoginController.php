@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Content;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -19,5 +23,34 @@ class LoginController extends Controller
             'posts' => $posts,
             'count' => 0
         ]);
+    }
+
+    public function login(): View|\Illuminate\Foundation\Application|Factory|Application
+    {
+        return view('login', [
+            'title' => 'Log In'
+        ]);
+    }
+
+    public function authenticate(Request $request): RedirectResponse
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        $user = User::query()->where('email', $credentials['email'])->first();
+
+        if ($user) {
+            Auth::login($user);
+            $request->session()->regenerate();
+
+            return redirect(route('users.index'));
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+            'password' => 'Wrong password'
+        ])->onlyInput('email');
     }
 }

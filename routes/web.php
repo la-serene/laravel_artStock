@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +18,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(LoginController::class)
+    ->middleware(CheckAuth::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/signin', 'signin')->name('signin');
+        Route::get('/login', 'login')->name('login');
         Route::get('/signup', 'signup')->name('signup');
+        Route::post('/authenticate', 'authenticate')->name('authenticate');
+    });
+
+Route::controller(UserController::class)
+    ->name('user.')
+    ->prefix('/user')
+    ->group(function () {
+        Route::get('/index', 'index')->name('index');
     });
 
 Route::fallback(function () {

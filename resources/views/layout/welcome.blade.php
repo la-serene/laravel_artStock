@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('intro')
+@section('welcome')
     <div id="intro">
         <div id="navbar">
             <div id="navbar_leftElem" class="flex-box">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div id="navbar_rightElem">
-                <a href="/signin">
+                <a href="/login">
                     <div class="btn btn-primary">Sign In</div>
                 </a>
                 <a href="/signup">
