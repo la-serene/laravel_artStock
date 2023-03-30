@@ -8,14 +8,14 @@ use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckAuth
+class UserMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            return redirect(route('user.index'));
-        } else {
             return $next($request);
+        } else {
+            return redirect(route('index'));
         }
     }
 }
