@@ -27,7 +27,7 @@ class LoginController extends Controller
 
     public function login(): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        return view('login', [
+        return view('auth.login', [
             'title' => 'Log In'
         ]);
     }
