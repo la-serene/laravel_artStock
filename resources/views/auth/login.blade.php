@@ -5,17 +5,19 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-8">
-                <img src="{{ asset('/assets/logo/logo.png') }}" alt="" height="90px">
+                <a href=" {{ route('index') }}">
+                    <img src="{{ asset('/assets/logo/logo.png') }}" alt="" height="90px">
+                </a>
             </div>
             <div class="col-4"></div>
         </div>
         <div class="col-12">
             <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4">
+            <input type="email" class="form-control" id="inputEmail4" name="email">
         </div>
         <div class="col-12">
             <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <input type="password" class="form-control" id="inputPassword4" name="password">
             <div class="flex-box flex-end mt-8">
                 <a href="#">
                     Forgot password?
@@ -33,7 +35,7 @@
                 </div>
             </div>
             <div class="col-4 noPadding flex-box flex-end mt-8">
-                <a href="#">
+                <a href="{{ route('signup') }}">
                     Don't have an account yet? Sign up
                 </a>
             </div>

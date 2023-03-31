@@ -32,6 +32,13 @@ class LoginController extends Controller
         ]);
     }
 
+    public function signup(): View|\Illuminate\Foundation\Application|Factory|Application
+    {
+        return view('auth.signup', [
+            'title' => 'Sign up'
+        ]);
+    }
+
     public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
@@ -40,7 +47,6 @@ class LoginController extends Controller
         ]);
 
         $user = User::query()->where('email', $credentials['email'])->first();
-
         if ($user) {
             Auth::login($user);
             $request->session()->regenerate();

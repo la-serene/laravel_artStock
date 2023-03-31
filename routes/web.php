@@ -36,6 +36,6 @@ Route::controller(UserController::class)
         Route::get('/logout', 'logout')->name('logout');
     });
 
-Route::fallback(function () {
-   return view('fallback');
-});
+//Route::fallback(function () {
+//   return view('fallback');
+//});
