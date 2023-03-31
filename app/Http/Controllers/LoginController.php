@@ -45,7 +45,6 @@ class LoginController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
-
         $user = User::query()->where('email', $credentials['email'])->first();
         if ($user) {
             Auth::login($user);
