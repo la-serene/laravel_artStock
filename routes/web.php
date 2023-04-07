@@ -19,23 +19,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(LoginController::class)
-    ->middleware(GuestMiddleware::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/login', 'login')->name('login');
         Route::get('/signup', 'signup')->name('signup');
         Route::post('/authenticate', 'authenticate')->name('authenticate');
+        Route::post('/store', 'store')->name('store');
     });
 
 Route::controller(UserController::class)
-    ->middleware(UserMiddleware::class)
-    ->name('user.')
     ->prefix('/user')
+    ->middleware(['web', UserMiddleware::class])
+    ->name('user.')
     ->group(function () {
         Route::get('/index', 'index')->name('index');
         Route::get('/logout', 'logout')->name('logout');
     });
 
-//Route::fallback(function () {
-//   return view('fallback');
-//});
+Route::fallback(function () {
+   return view('fallback');
+});

@@ -15,17 +15,12 @@
 }
 
 #auth_form {
-    background-image: url("../assets/bg/Usoii_A_young_girl_and_her_loyal_friend_embark_on_a_rescue_miss_b3fb6e17-5463-4746-9413-c426967a7fde.png");
-    width: 100%;
-    height: 816px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background: url("../assets/bg/DALL·E 2023-04-07 16.40.21 - cold colorful diagonal stripes.png");
+    height: 1200px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 10px #4a5568;
 }
 
 #form_zone {
