@@ -31,6 +31,22 @@ html {
     letter-spacing: 1px;
 }
 
+.full-height {
+    height: 100% !important;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.position-relative {
+    position: relative !important;
+}
+
+.no_shadow {
+    box-shadow: none;
+}
+
 #intro {
     background-image: url("../assets/bg/Polish_20230319_172553650.png");
     padding-top: 52.6%;
@@ -94,3 +110,58 @@ html {
 #newsfeed {
     margin-top: 100px;
 }
+
+#landing1 {
+    background-color: #ffe1e1;
+    height: 800px;
+}
+
+#item1 {
+    position: absolute;
+    top: 32%;
+    left: 16%;
+}
+
+#item2 {
+    position: absolute;
+    top: 16%;
+    right: 8%;
+}
+
+#item3 {
+    position: absolute;
+    top: 36%;
+    right: 4%;
+}
+
+#item4 {
+    position: absolute;
+    top: 60%;
+    left: 4%;
+}
+
+#item5 {
+    position: absolute;
+    top: 28%;
+    left: 4%;
+}
+
+.landing1_img {
+    transition: all 0.3s ease-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.landing1_img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#footer {
+    background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
+}
+
+#footer a {
+    color: white;
+    text-decoration: none;
+}
+
