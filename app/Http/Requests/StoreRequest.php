@@ -20,17 +20,19 @@ class StoreRequest extends FormRequest
             'user_id' => [
                 'bail',
                 'string',
-                'max:255'
+                'max:255',
             ],
             'username' => [
                 'bail',
                 'string',
                 'max:14',
+                'unique:App\Models\User,username',
             ],
             'email' => [
                 'bail',
                 'string',
                 'max:255',
+                'unique:App\Models\User,email',
             ],
             'first_name' => [
                 'bail',
