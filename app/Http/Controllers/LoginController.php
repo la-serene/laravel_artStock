@@ -21,10 +21,9 @@ class LoginController extends Controller
         $title = 'Unleash your creativity';
         $posts = Content::all();
 
-        return view('layout.welcome', [
+        return view('guests.index', [
             'title' => $title,
             'posts' => $posts,
-            'count' => 0
         ]);
     }
 
