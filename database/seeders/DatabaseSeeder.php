@@ -6,7 +6,9 @@ namespace Database\Seeders;
 use App\Models\Admin;
 use App\Models\content;
 use App\Models\User;
+use Database\Factories\PasswordResetFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
