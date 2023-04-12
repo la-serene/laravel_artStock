@@ -4,6 +4,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\GuestMiddleware;
+use App\Http\Middleware\TrustHosts;
 use App\Http\Middleware\UserMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,7 @@ Route::controller(LoginController::class)
     ->group(function () {
         Route::get('/forgot_password', 'forgot_password')->name('request');
         Route::post('/forgot_password', 'forgot_password_handle')->name('email');
-        Route::get('/reset_password/{token}', 'reset_password')->name('reset');
+        Route::get('/reset_password/{token}', 'reset_password')->middleware(TrustHosts::class)->name('reset');
         Route::post('/reset_password', 'update_password')->name('update');
 
     });

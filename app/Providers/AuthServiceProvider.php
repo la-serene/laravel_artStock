@@ -25,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         ResetPassword::createUrlUsing(function (User $user, string $token) {
-            return 'https://laravel_artStock.test/reset-password?token='.$token;
+            return 'http://laravel_artstock.test/reset-password?token='.$token;
         });
     }
 }
