@@ -1,6 +1,6 @@
 @extends('auth.auth')
 @section('login_form')
-    <form class="row g-3" action=" {{ route('authenticate') }} " method="POST">
+    <form class="row g-3" action=" {{ route('password.update') }} " method="POST">
         @csrf
         <div class="col-12 text-center">
             <a href="{{ route('index') }}">
@@ -17,33 +17,15 @@
             </div>
         @endif
         <div class="col-12">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" name="email">
+            <input type="hidden" id="token" name="token" value="{{ $token }}">
         </div>
         <div class="col-12">
             <label for="inputPassword4" class="form-label">Password</label>
             <input type="password" class="form-control" id="inputPassword4" name="password">
-            <div class="flex-box flex-end mt-8">
-                <a href="{{ route('password.request') }}">
-                    Forgot password?
-                </a>
-            </div>
         </div>
-        <div class="h10"></div>
-        <div id="form_helper" class="row">
-            <div class="col-8">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Remember me
-                    </label>
-                </div>
-            </div>
-            <div class="col-4 noPadding flex-box flex-end mt-8">
-                <a href="{{ route('signup') }}">
-                    Don't have an account yet? Sign up
-                </a>
-            </div>
+        <div class="col-12">
+            <label for="inputPassword5" class="form-label">Confirm your password</label>
+            <input type="password" class="form-control" id="inputPassword5" name="password_confirmation">
         </div>
         <div class="h10"></div>
         <div class="row">

@@ -22,7 +22,6 @@ return new class extends Migration
             $table->boolean('gender');
             $table->string('phone_number');
             $table->string('avatar')->nullable();
-            $table->string('payment_method')->nullable();
             $table->smallInteger('permission');
             $table->timestamps();
         });

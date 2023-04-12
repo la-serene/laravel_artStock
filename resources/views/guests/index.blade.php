@@ -16,12 +16,7 @@
                     </a>
                     <a href="#">
                         <div class="btn nav-btn color_white">
-                            Category
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="btn nav-btn color_white">
-                            Forum
+                            Marketplace
                         </div>
                     </a>
                     <a href="#footer">

@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements Authenticatable
+class User extends Model implements Authenticatable, CanResetPassword
 {
     use \Illuminate\Auth\Authenticatable;
+    use \Illuminate\Auth\Passwords\CanResetPassword;
+    use Notifiable;
     use HasFactory;
 
     protected $fillable = [
