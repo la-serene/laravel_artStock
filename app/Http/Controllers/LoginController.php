@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\Content;
 use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -13,24 +13,25 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class LoginController extends Controller
 {
     public function index(): View|\Illuminate\Foundation\Application|Factory|Application
     {
         $title = 'Unleash your creativity';
-        $posts = Content::all();
 
         return view('guests.index', [
             'title' => $title,
-            'posts' => $posts,
         ]);
     }
 
     public function login(): View|\Illuminate\Foundation\Application|Factory|Application
     {
+        $data = '$2y$10$9WC7dScFgU52D0G832i5J.tSqroITkKVbfzj89YP1zjnliNMFhZNi'.PHP_EOL.Hash::make('1234');
         return view('auth.login', [
             'title' => 'Log In'
         ]);
@@ -50,14 +51,19 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
+        $pass = DB::table('users')->where('email', $credentials['email'])->get('password');
+        $hashed = $pass[0]->password;
+
         $user = User::query()->where('email', $credentials['email'])->first();
         if ($user) {
-            Auth::login($user);
-            $request->session()->regenerate();
-            return redirect(route('user.index'));
+            if (Hash::check($credentials['password'], $hashed)) {
+                Auth::login($user);
+                $request->session()->regenerate();
+                return redirect()->route('user.index');
+            }
         }
 
-        return back()->withErrors([
+        return redirect()->route('login')->withErrors([
             'email' => 'The provided credentials do not match our records.',
             'password' => 'Wrong password'
         ])->onlyInput('email');
@@ -65,9 +71,11 @@ class LoginController extends Controller
 
     public function store(StoreRequest $request
     ): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application {
-        User::create($request->validated());
+        $data = $request->validated();
+        $data['password'] = Hash::make($data['password']);
+        User::create($data);
 
-        return redirect(route('login'));
+        return redirect()->route('login');
     }
 
     public function forgot_password(): View|\Illuminate\Foundation\Application|Factory|Application
@@ -94,19 +102,22 @@ class LoginController extends Controller
             ]);
     }
 
-    public function reset_password(string $token): View|\Illuminate\Foundation\Application|Factory|Application
+    public function reset_password(Request $request): View|\Illuminate\Foundation\Application|Factory|Application
     {
+        $token = $request->input('token');
         return view('auth.reset_password', [
-            'token' => $token
+            'title' => 'Change your password',
+            'token' => $token,
         ]);
     }
 
-    public function update_password(Request $request)
+    public function update_password(Request $request): RedirectResponse
     {
+
         $request->validate([
             'token' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:8|confirmed',
+            'password' => 'required|min:1|confirmed',
         ]);
 
         $status = Password::reset(
@@ -125,6 +136,5 @@ class LoginController extends Controller
         return $status === Password::PASSWORD_RESET
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
-
     }
 }

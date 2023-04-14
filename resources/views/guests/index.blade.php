@@ -70,7 +70,9 @@
             </div>
         </div>
         <img id="item4" class="landing1_img" src="{{ asset('/assets/bg/Medieval_61.png') }}" alt="" height="200px">
-        <img id="item5" class="landing1_img" src="{{ asset('/assets/bg/Byte_flat_illustration_by_Jason_Brooks_a_time_tunnel_the_Statue_180b8f3e-c160-4e8d-b37f-6e6446a29d6c.png') }}" alt="" height="200px">
+        <img id="item5" class="landing1_img"
+             src="{{ asset('/assets/bg/Byte_flat_illustration_by_Jason_Brooks_a_time_tunnel_the_Statue_180b8f3e-c160-4e8d-b37f-6e6446a29d6c.png') }}"
+             alt="" height="200px">
     </div>
     @include('layout.footer')
 @endsection
@@ -86,3 +88,4 @@
         }
     </script>
 @endpush
+

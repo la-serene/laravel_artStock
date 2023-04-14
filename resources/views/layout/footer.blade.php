@@ -4,8 +4,8 @@
             <div class="col-md-6 mb-3">
                 <h4>Contact Info</h4>
                 <ul class="list-unstyled">
-                    <li><i class="fa fa-phone"></i> 0325373390</li>
-                    <li><i class="fa fa-envelope"></i> caoky2003xx@gmail.com</li>
+                    <li><i class="fa ti-mobile"></i> 0325373390</li>
+                    <li><i class="fa ti-email"></i> ky.NguyenCao23@gmail.com</li>
                 </ul>
             </div>
             <div class="col-md-6">

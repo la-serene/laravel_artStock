@@ -41,7 +41,7 @@
             <input type="password" class="form-control" id="inputPassword4" name="password">
         </div>
         <div class="col-12">
-            <label for="password_confirmation" class="form-label">Verify your password</label>
+            <label for="password_confirmation" class="form-label">Confirm your password</label>
             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
         </div>
         <div class="col-6">
