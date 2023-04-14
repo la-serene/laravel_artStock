@@ -20,7 +20,9 @@ class UserController extends Controller
      */
     public function index(): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        return view('users.index');
+        return view('users.index', [
+            'title' => 'artStock',
+        ]);
     }
 
     /**

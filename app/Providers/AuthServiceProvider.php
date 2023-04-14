@@ -5,6 +5,9 @@ namespace App\Providers;
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
+use App\Models\User;
+use Illuminate\Auth\Notifications\ResetPassword;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -21,6 +24,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        ResetPassword::createUrlUsing(function (User $user, string $token) {
+            return 'http://laravel_artstock.test/reset_password?token='.$token;
+        });
     }
 }
