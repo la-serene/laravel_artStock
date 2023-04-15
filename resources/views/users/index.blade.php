@@ -2,7 +2,7 @@
 @section('content')
     Logged in :V
     <p>
-        email is {{ session('email') }}
+        email is {{ session('name') }}
     </p>
     <p>
         password is {{ session('password') }}

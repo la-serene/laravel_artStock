@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class LoginController extends Controller
 {
@@ -58,7 +59,9 @@ class LoginController extends Controller
             if (Hash::check($credentials['password'], $hashed)) {
                 Auth::login($user);
                 $request->session()->regenerate();
-                return redirect()->route('user.index');
+                return redirect()->route('user.index', [
+                    'user' => $user,
+                ]);
             }
         }
 
@@ -104,9 +107,11 @@ class LoginController extends Controller
     public function reset_password(Request $request): View|\Illuminate\Foundation\Application|Factory|Application
     {
         $token = $request->input('token');
+        $email = $request->input('email');
         return view('auth.reset_password', [
             'title' => 'Change your password',
             'token' => $token,
+            'email' => $email,
         ]);
     }
 
@@ -122,6 +127,7 @@ class LoginController extends Controller
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function (User $user, string $password) {
+                $password = Hash::make($password);
                 $user->forceFill([
                     'password' => $password
                 ]);
