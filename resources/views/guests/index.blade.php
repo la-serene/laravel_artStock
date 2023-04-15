@@ -1,4 +1,7 @@
 @extends('layout.welcome')
+@push('css')
+    <link rel="stylesheet" href="{{ asset('/css/guest.css?v=3') }}">
+@endpush
 @section('content')
     <div id="intro">
         <div id="navbar">
@@ -46,7 +49,7 @@
     </div>
     <div id="landing1" class="position-relative">
         <img id="item1" class="landing1_img"
-             src="{{ asset('/assets/bg/DALL·E 2023-04-07 17.38.43 - A photo of a teddy bear on a skateboard in Times Square.png') }}"
+             src="{{ asset('/assets/bg/DALLE 2023-04-07 17.38.43 - A photo of a teddy bear on a skateboard in Times Square.png') }}"
              alt="" height="200px">
         <h1 id="item2">
             Bring yourself to the endless wonders

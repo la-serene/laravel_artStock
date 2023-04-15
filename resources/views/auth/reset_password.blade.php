@@ -20,6 +20,9 @@
             <input type="hidden" id="token" name="token" value="{{ $token }}">
         </div>
         <div class="col-12">
+            <input type="hidden" id="email" name="email" value="{{ $email }}">
+        </div>
+        <div class="col-12">
             <label for="inputPassword4" class="form-label">Password</label>
             <input type="password" class="form-control" id="inputPassword4" name="password">
         </div>

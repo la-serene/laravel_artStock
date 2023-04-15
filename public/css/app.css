@@ -47,121 +47,19 @@ html {
     box-shadow: none;
 }
 
-#intro {
-    background-image: url("../assets/bg/Polish_20230319_172553650.png");
-    padding-top: 52.6%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+.h10 {
+    height: 10px;
 }
 
-#navbar {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
+.flex-end {
+    justify-content: flex-end !important;
 }
 
-#leftElem_navbar {
-    align-items: center;
+.mt-8 {
+    margin-top: 8px !important;
 }
 
-#navbar_leftElem {
-    justify-content: center;
-}
-
-.btn a {
-    text-decoration: none;
-    color: white;
-}
-
-.btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-.nav-btn {
-    text-transform: uppercase;
-    margin: 0 12px;
-    font-size: 16px;
-}
-
-#navbar_rightElem {
-    align-items: center;
-    width: 16%;
-    display: flex;
-    justify-content: space-around;
-}
-
-#searchbar {
-    width: 36%;
-    position: absolute;
-    top: 60%;
-    left: 32%;
-}
-
-#leftFeed {
-    width: 20%;
-}
-
-#newsfeed {
-    margin-top: 100px;
-}
-
-#landing1 {
-    background-color: #ffe1e1;
-    height: 800px;
-}
-
-#item1 {
-    position: absolute;
-    top: 32%;
-    left: 16%;
-}
-
-#item2 {
-    position: absolute;
-    top: 16%;
-    right: 8%;
-}
-
-#item3 {
-    position: absolute;
-    top: 36%;
-    right: 4%;
-}
-
-#item4 {
-    position: absolute;
-    top: 60%;
-    left: 4%;
-}
-
-#item5 {
-    position: absolute;
-    top: 28%;
-    left: 4%;
-}
-
-.landing1_img {
-    transition: all 0.3s ease-out;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.landing1_img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-#footer {
-    background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
-}
-
-#footer a {
-    color: white;
-    text-decoration: none;
+.noPadding {
+    padding: 0;
 }
 
