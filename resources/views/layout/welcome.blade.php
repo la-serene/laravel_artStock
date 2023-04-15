@@ -19,7 +19,4 @@
 </div>
 </body>
 </html>
-<script>
-
-</script>
 @stack('js')

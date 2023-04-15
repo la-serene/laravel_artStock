@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use Faker\Factory as Faker;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -16,7 +17,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Testing\Fluent\Concerns\Has;
 
 class LoginController extends Controller
 {
@@ -31,7 +31,6 @@ class LoginController extends Controller
 
     public function login(): View|\Illuminate\Foundation\Application|Factory|Application
     {
-        $data = '$2y$10$9WC7dScFgU52D0G832i5J.tSqroITkKVbfzj89YP1zjnliNMFhZNi'.PHP_EOL.Hash::make('1234');
         return view('auth.login', [
             'title' => 'Log In'
         ]);
@@ -54,7 +53,7 @@ class LoginController extends Controller
         $pass = DB::table('users')->where('email', $credentials['email'])->get('password');
         $hashed = $pass[0]->password;
 
-        $user = User::query()->where('email', $credentials['email'])->first();
+        $user = User::where('email', $credentials['email'])->first();
         if ($user) {
             if (Hash::check($credentials['password'], $hashed)) {
                 Auth::login($user);
@@ -69,11 +68,12 @@ class LoginController extends Controller
         ])->onlyInput('email');
     }
 
-    public function store(StoreRequest $request
-    ): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application {
-        $data = $request->validated();
-        $data['password'] = Hash::make($data['password']);
-        User::create($data);
+    public function store(StoreUserRequest $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
+    {
+        $request = $request->validated();
+        $request['user_id'] = substr($request['username'], 0, 4) . Faker::create()->numberBetween(1000, 9999);
+        $request['password'] = Hash::make($request['password']);
+        User::create($request);
 
         return redirect()->route('login');
     }
@@ -87,10 +87,9 @@ class LoginController extends Controller
 
     public function forgot_password_handle(UpdateUserRequest $request): RedirectResponse
     {
-        $request->validated();
-
+        $request = $request->validated();
         $status = Password::sendResetLink(
-            $request->only('email')
+            $request,
         );
 
         return $status === Password::RESET_LINK_SENT

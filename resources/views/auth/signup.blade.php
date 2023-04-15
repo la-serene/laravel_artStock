@@ -17,10 +17,6 @@
             </div>
         @endif
         <div class="col-12">
-            <label for="userid" class="form-label">Username id</label>
-            <input type="text" class="form-control" id="userid" name="user_id">
-        </div>
-        <div class="col-12">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username">
         </div>
@@ -47,7 +43,7 @@
         <div class="col-6">
             <label for="date_of_birth" class="form-label">Date of birth</label>
             <div class="input-group">
-                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" aria-label="Date of birth">
+                <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" aria-label="Date of birth" value="2020-04-15">
                 <span class="input-group-text"><i class="bi bi-calendar"></i></span>
             </div>
         </div>
@@ -55,7 +51,7 @@
             <label for="gender" class="form-label">Gender</label>
             <select class="form-select" id="gender" name="gender" aria-label="Gender">
                 <option value="">Choose...</option>
-                <option value="1">Male</option>
+                <option selected value="1">Male</option>
                 <option value="0">Female</option>
             </select>
         </div>
@@ -66,3 +62,16 @@
         <div class="col-5"></div>
     </form>
 @endsection
+@push('js')
+    <script>
+        window.addEventListener("pageshow", function(event) {
+            var historyTraversal = event.persisted ||
+                (typeof window.performance != "undefined" &&
+                    window.performance.getEntriesByType("navigation")[0].type === "back_forward");
+            if (historyTraversal) {
+                // Handle page restore.
+                window.location.reload();
+            }
+        });
+    </script>
+@endpush
