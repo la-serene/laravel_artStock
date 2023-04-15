@@ -80,7 +80,6 @@
     @include('layout.footer')
 @endsection
 @push('js')
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="">
         export default {
             method: {
