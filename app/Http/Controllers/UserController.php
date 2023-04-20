@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index(): View|\Illuminate\Foundation\Application|Factory|Application
     {
         return view('users.index', [
-            'title' => 'artStock',
+            'title' => 'artStock'
         ]);
     }
 

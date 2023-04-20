@@ -35,6 +35,10 @@ html {
     height: 100% !important;
 }
 
+.justify-content-center {
+    justify-content: center !important;
+}
+
 .align-center {
     align-items: center !important;
 }
@@ -59,7 +63,24 @@ html {
     margin-top: 8px !important;
 }
 
-.noPadding {
-    padding: 0;
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.btn-outline-white {
+    color: white;
+    border-color: white;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.full-width {
+    width: 100%;
 }
 

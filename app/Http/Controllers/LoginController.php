@@ -59,9 +59,7 @@ class LoginController extends Controller
             if (Hash::check($credentials['password'], $hashed)) {
                 Auth::login($user);
                 $request->session()->regenerate();
-                return redirect()->route('user.index', [
-                    'user' => $user,
-                ]);
+                return redirect()->route('user.index');
             }
         }
 

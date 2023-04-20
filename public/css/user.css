@@ -1,0 +1,18 @@
+#header {
+    background-color: black;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#user_avatar:hover {
+    cursor: pointer;
+}
+
+ul li a {
+    text-transform: uppercase;
+}

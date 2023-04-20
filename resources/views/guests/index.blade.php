@@ -57,7 +57,7 @@
             waiting to be explored...
         </h1>
         <div id="item3">
-            <div class="row align-center">
+            <div class="row align-items-center">
                 <div class="col-4">
                     <img class="landing1_img" src="{{ asset('/assets/bg/0_0-52.webp') }}" alt="" height="280px">
                 </div>
