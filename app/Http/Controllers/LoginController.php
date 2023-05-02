@@ -52,14 +52,16 @@ class LoginController extends Controller
         ]);
 
         $pass = DB::table('users')->where('email', $credentials['email'])->get('password');
-        $hashed = $pass[0]->password;
+        if (!$pass->isEmpty()) {
+            $hashed = $pass[0]->password;
 
-        $user = User::where('email', $credentials['email'])->first();
-        if ($user) {
-            if (Hash::check($credentials['password'], $hashed)) {
-                Auth::login($user);
-                $request->session()->regenerate();
-                return redirect()->route('user.index');
+            $user = User::where('email', $credentials['email'])->first();
+            if ($user) {
+                if (Hash::check($credentials['password'], $hashed)) {
+                    Auth::login($user);
+                    $request->session()->regenerate();
+                    return redirect()->route('user.index');
+                }
             }
         }
 

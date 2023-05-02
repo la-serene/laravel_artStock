@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('content_id')->unique();
             $table->string('media');
+            $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();

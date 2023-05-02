@@ -22,6 +22,7 @@ class ContentFactory extends Factory
         return [
             'content_id' => $content_id,
             'media' => $faker->imageUrl(360, 360),
+            'title' => $faker->paragraph(1),
             'caption' => $faker->paragraph(2),
             'content_owner_id' => User::query()->inRandomOrder()->value('user_id'),
         ];
