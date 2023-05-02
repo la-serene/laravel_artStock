@@ -56,37 +56,37 @@
                 </ul>
             </div>
             <div id="banner" class="mt-lg-4">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div id="carousel_banner" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="0"
                                 class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="1"
                                 aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="2"
                                 aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img
-                                src="{{ asset('/assets/img/home/banner/A_girl_looking_at_the_city_back_Night_the_sky_is_full_of_star_banner.png') }}"
+                                src="{{ asset('/assets/img/home/banner/A_girl_looking_at_the_city_back_Night_the_sky_is_full_of_star.jpg') }}"
                                 alt="" class="full-width">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('/assets/img/home/banner/8_copy.png') }}" class="d-block w-100" alt="..."
+                            <img src="{{ asset('/assets/img/home/banner/space_girls.jpg') }}" class="d-block w-100" alt="..."
                                  width="1240px">
                         </div>
                         <div class="carousel-item">
                             <img
-                                src="{{ asset('/assets/img/home/banner/m78892_Mandelbrot_Encaustic_Painting_Acidwave_Bamboo_Forest_One_cf11a8d7-0dda-461b-8df7-1742a24aed00_banner.png') }}"
+                                src="{{ asset('/assets/img/home/banner/John_Wick.jpg') }}"
                                 class="d-block w-100" alt="..." width="1240px">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel_banner"
                             data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel_banner"
                             data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
