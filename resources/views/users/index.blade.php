@@ -68,16 +68,16 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img
-                                src="{{ asset('/assets/banner/A_girl_looking_at_the_city_back_Night_the_sky_is_full_of_star_banner.png') }}"
+                                src="{{ asset('/assets/img/home/banner/A_girl_looking_at_the_city_back_Night_the_sky_is_full_of_star_banner.png') }}"
                                 alt="" class="full-width">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{ asset('/assets/banner/8_copy.png') }}" class="d-block w-100" alt="..."
+                            <img src="{{ asset('/assets/img/home/banner/8_copy.png') }}" class="d-block w-100" alt="..."
                                  width="1240px">
                         </div>
                         <div class="carousel-item">
                             <img
-                                src="{{ asset('/assets/banner/m78892_Mandelbrot_Encaustic_Painting_Acidwave_Bamboo_Forest_One_cf11a8d7-0dda-461b-8df7-1742a24aed00_banner.png') }}"
+                                src="{{ asset('/assets/img/home/banner/m78892_Mandelbrot_Encaustic_Painting_Acidwave_Bamboo_Forest_One_cf11a8d7-0dda-461b-8df7-1742a24aed00_banner.png') }}"
                                 class="d-block w-100" alt="..." width="1240px">
                         </div>
                     </div>
