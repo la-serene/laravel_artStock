@@ -23,6 +23,7 @@ class StoreUserRequest extends FormRequest
                 'bail',
                 'string',
                 'max:255',
+                'unique:App\Models\User,user_id',
             ],
             'username' => [
                 'bail',
