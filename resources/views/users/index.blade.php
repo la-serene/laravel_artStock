@@ -96,6 +96,9 @@
         </div>
         <div class="col-1"></div>
     </div>
+    <div class="row">
+{{--        @include("layout.footer")--}}
+    </div>
 @endsection
 @push('js')
     <script>

@@ -106,12 +106,3 @@
     transform: scale(1.1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
-#footer {
-    background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
-}
-
-#footer a {
-    color: white;
-    text-decoration: none;
-}
