@@ -29,4 +29,12 @@ class User extends Model implements Authenticatable, CanResetPassword
         'avatar',
         'payment_method',
     ];
+
+    public static function booted(): void
+    {
+           static::created(function ($user) {
+            $userFolder = public_path('uploads/'.$user->user_id);
+            mkdir($userFolder, 0777, true);
+        });
+    }
 }
