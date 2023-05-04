@@ -49,6 +49,14 @@ Route::controller(UserController::class)
         Route::get('/logout', 'logout')->name('logout');
     });
 
+Route::controller(ContentController::class)
+    ->prefix('/user/post')
+    ->middleware(['web', UserMiddleware::class])
+    ->name('post.')
+    ->group(function () {
+        Route::get('/new', 'create')->name('create');
+    });
+
 Route::fallback(function () {
    return view('fallback');
 });

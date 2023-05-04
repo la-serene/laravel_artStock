@@ -21,7 +21,9 @@ class ContentController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create', [
+           'title' => "New Post"
+        ]);
     }
 
     /**
