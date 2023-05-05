@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\File;
+@endphp
 @extends('layout.welcome')
 @push('css')
     <link rel="stylesheet" href="{{ asset('/css/user.css?v=3') }}">
@@ -24,30 +27,25 @@
                 </ul>
             </div>
             <div id="banner" class="mt-lg-4">
+                @php
+                    $files = File::allFiles(public_path('assets/img/home/banner'));
+                @endphp
                 <div id="carousel_banner" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="0"
-                                class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="1"
-                                aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="2"
-                                aria-label="Slide 3"></button>
+                        @foreach ($files as $file)
+                            <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="{{ $loop->iteration - 1 }}"
+                                    class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
+                                    aria-label="Slide {{ $loop->iteration }}"></button>
+                        @endforeach
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img
-                                src="{{ asset('/assets/img/home/banner/A_girl_looking_at_the_city_back_Night_the_sky_is_full_of_star.jpg') }}"
-                                alt="" class="full-width">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset('/assets/img/home/banner/space_girls.jpg') }}" class="d-block w-100" alt="..."
-                                 width="1240px">
-                        </div>
-                        <div class="carousel-item">
-                            <img
-                                src="{{ asset('/assets/img/home/banner/John_Wick.jpg') }}"
-                                class="d-block w-100" alt="..." width="1240px">
-                        </div>
+                        @foreach ($files as $file)
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="4000">
+                                <img
+                                    src="{{ asset('/assets/img/home/banner/' . $file->getFilename()) }}"
+                                    alt="" class="d-block w-100">
+                            </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carousel_banner"
                             data-bs-slide="prev">
@@ -65,6 +63,6 @@
         <div class="col-1"></div>
     </div>
     <div class="row">
-{{--        @include("layout.footer")--}}
+        {{--        @include("layout.footer")--}}
     </div>
 @endsection
