@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\content;
 use App\Http\Requests\StoreContentRequest;
 use App\Http\Requests\UpdateContentRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 
 class ContentController extends Controller
 {
@@ -19,7 +23,7 @@ class ContentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('post.create', [
            'title' => "New Post"
@@ -29,9 +33,25 @@ class ContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreContentRequest $request)
+    public function store(StoreContentRequest $request): RedirectResponse
     {
-        //
+        $post = [];
+        $user = current_user();
+
+        $request = $request->validated();
+        $userID = $user->getAttribute('user_id');
+        $path = $request['photo']->store('assets/user/' . $userID . '/resource');
+
+        $post['media'] = $path;
+        $post['title'] = $request['title'];
+        $post['caption'] = $request['caption'];
+        $post['prompt'] = $request['prompt'];
+        $post['postOwner_id'] = $userID;
+
+        Content::create($post);
+
+        return redirect()->route('user.index');
+
     }
 
     /**

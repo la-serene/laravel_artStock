@@ -30,7 +30,6 @@ class AdminFactory extends Factory
             'gender' => $gender,
             'phone_number' => $faker->phoneNumber(),
             'avatar' => $faker->optional()->imageUrl(360, 360),
-            'permission' => $faker->randomElement([1, 2])
         ];
     }
 }

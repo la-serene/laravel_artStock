@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('phone_number')->nullable()->default(null);
             $table->string('avatar')->nullable()->default(null);
             $table->string('payment_method')->nullable()->default(null);
-            $table->smallInteger('permission')->nullable()->default(null);
             $table->string('remember_token')->nullable()->default(null);
             $table->timestamps();
         });

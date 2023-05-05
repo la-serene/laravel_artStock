@@ -54,7 +54,8 @@ Route::controller(ContentController::class)
     ->middleware(['web', UserMiddleware::class])
     ->name('post.')
     ->group(function () {
-        Route::get('/new', 'create')->name('create');
+        Route::get('/new', 'create')->name('new');
+        Route::post('/new/store', 'store')->name('store');
     });
 
 Route::fallback(function () {

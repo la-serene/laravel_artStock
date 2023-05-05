@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
     {
          User::factory(6)->create();
         Admin::factory(5)->create();
+        Content::factory(5)->create();
     }
 }

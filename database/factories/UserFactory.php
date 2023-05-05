@@ -33,7 +33,6 @@ class UserFactory extends Factory
             'phone_number' => $faker->phoneNumber(),
             'avatar' => $faker->optional()->imageUrl(360, 360),
             'payment_method' => $faker->optional()->creditCardType(),
-            'permission' => null
         ];
     }
 }

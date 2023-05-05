@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contents', function (Blueprint $table) {
-            $table->id();
-            $table->string('content_id')->unique();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->uuid('id')->nullable();
             $table->string('media');
             $table->string('title')->nullable();
             $table->string('caption')->nullable();
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();
-            $table->string('content_owner_id');
+            $table->string('postOwner_id');
             $table->integer('like_count')->default(0);
-            $table->smallInteger('permission')->default(0);
             $table->timestamps();
         });
     }
