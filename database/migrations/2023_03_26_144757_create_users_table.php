@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('bio')->nullable()->default(null);
+            $table->text('bio')->nullable()->default(null);
             $table->date('date_of_birth');
             $table->string('email')->unique();
             $table->boolean('gender');
