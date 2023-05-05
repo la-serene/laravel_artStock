@@ -13,16 +13,13 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Category</a>
+                        <a class="nav-link" href="{{ route('post.new') }}">New Post</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Trending</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post.new') }}">New Post</a>
                     </li>
                 </ul>
             </div>
@@ -71,16 +68,3 @@
 {{--        @include("layout.footer")--}}
     </div>
 @endsection
-@push('js')
-    <script>
-        window.addEventListener("pageshow", function (event) {
-            let historyTraversal = event.persisted ||
-                (typeof window.performance != "undefined" &&
-                    window.performance.getEntriesByType("navigation")[0].type === "back_forward");
-            if (historyTraversal) {
-                // Handle page restore.
-                window.location.reload();
-            }
-        });
-    </script>
-@endpush

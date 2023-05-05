@@ -22,4 +22,15 @@
 </html>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+<script>
+    window.addEventListener("pageshow", function (event) {
+        let historyTraversal = event.persisted ||
+            (typeof window.performance != "undefined" &&
+                window.performance.getEntriesByType("navigation")[0].type === "back_forward");
+        if (historyTraversal) {
+            // Handle page restore.
+            window.location.reload();
+        }
+    });
+</script>
 @stack('js')
