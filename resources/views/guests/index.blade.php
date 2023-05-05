@@ -13,12 +13,12 @@
                 </div>
                 <div id="leftElem_navbar" class="flex-box">
                     <a href="">
-                        <div class="btn nav-btn color_white" @click="reloadPage">
+                        <div class="btn nav-btn color-white" @click="reloadPage">
                             Home
                         </div>
                     </a>
                     <a href="#footer">
-                        <div class="btn nav-btn color_white">
+                        <div class="btn nav-btn color-white">
                             About me
                         </div>
                     </a>
@@ -29,9 +29,9 @@
         <div id="searchbar">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success bg-success color_white btn-hover" type="submit">Search</button>
+                <button class="btn btn-outline-success bg-success color-white btn-hover" type="submit">Search</button>
             </form>
-            <p class="text-center color_white letter-space">dipping in the cave of art..</p>
+            <p class="text-center color-white letter-space">dipping in the cave of art..</p>
         </div>
     </div>
     <div id="landing1" class="position-relative">
