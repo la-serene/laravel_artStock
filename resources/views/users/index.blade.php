@@ -71,9 +71,9 @@
                 @endphp
                 <div class="user_slickCarousel mt-2 mb-2">
                     @foreach($latestPosts as $latestPost)
-                        <div>
+                        <a class="block" href="{{ route('post.index', ['id' => $latestPost->getAttribute('id')]) }}">
                             <img src="{{ asset($latestPost->getAttribute('media')) }}" alt="" height="200px">
-                        </div>
+                        </a>
                     @endforeach
                 </div>
 

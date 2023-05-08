@@ -88,6 +88,10 @@ html {
     border-color: white !important;
 }
 
+.block {
+    display: block !important;
+}
+
 #footer {
     background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
 }

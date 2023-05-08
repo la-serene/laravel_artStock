@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\content;
 use App\Http\Requests\StoreContentRequest;
 use App\Http\Requests\UpdateContentRequest;
+use App\Models\content;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -15,9 +15,13 @@ class ContentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $id)
     {
-        //
+        $post = Content::find($id);
+        return view('post.index', [
+            'title' => $post->getAttribute('title'),
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -26,7 +30,7 @@ class ContentController extends Controller
     public function create(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('post.create', [
-           'title' => "New Post"
+            'title' => "New Post"
         ]);
     }
 
@@ -39,7 +43,7 @@ class ContentController extends Controller
         $userID = $user->getAttribute('user_id');
 
         $request = $request->validated();
-        $path = $request['photo']->store('assets/user/' . $userID . '/resource', [
+        $path = $request['photo']->store('assets/user/'.$userID.'/resource', [
             'disk' => 'public_uploads',
         ]);
 

@@ -1,8 +1,9 @@
 $(document).ready(function(){
     $('.user_slickCarousel').slick({
         centerMode: true,
+        variableWidth: true,
+        slidesToShow: 1,
         infinite: true,
-        slidesToShow: 3,
         autoplay: true,
         autoplaySpeed: 2000,
     });
