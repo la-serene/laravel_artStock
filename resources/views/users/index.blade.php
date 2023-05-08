@@ -4,13 +4,14 @@
 @extends('layout.welcome')
 @push('css')
     <link rel="stylesheet" href="{{ asset('/css/user.css?v=3') }}">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 @endpush
 @section('content')
     @include('users.user_menu')
     <div class="row no-margin">
         <div class="col-1"></div>
         <div class="col-10">
-            <div>
+            <div id="user_navbar">
                 <ul class="nav" style="background-color: pink">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -26,7 +27,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="banner" class="mt-lg-4">
+            <div id="user_banner" class="mt-lg-4">
                 @php
                     $files = File::allFiles(public_path('assets/img/home/banner'));
                 @endphp
@@ -66,3 +67,9 @@
         {{--        @include("layout.footer")--}}
     </div>
 @endsection
+@push('js')
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{{ asset('assets/js/user.js') }}"></script>
+@endpush

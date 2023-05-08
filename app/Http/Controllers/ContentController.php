@@ -35,11 +35,10 @@ class ContentController extends Controller
      */
     public function store(StoreContentRequest $request): RedirectResponse
     {
-        $post = [];
         $user = current_user();
+        $userID = $user->getAttribute('user_id');
 
         $request = $request->validated();
-        $userID = $user->getAttribute('user_id');
         $path = $request['photo']->store('assets/user/' . $userID . '/resource');
 
         $post['media'] = $path;
