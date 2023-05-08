@@ -39,7 +39,9 @@ class ContentController extends Controller
         $userID = $user->getAttribute('user_id');
 
         $request = $request->validated();
-        $path = $request['photo']->store('assets/user/' . $userID . '/resource');
+        $path = $request['photo']->store('assets/user/' . $userID . '/resource', [
+            'disk' => 'public_uploads',
+        ]);
 
         $post['media'] = $path;
         $post['title'] = $request['title'];

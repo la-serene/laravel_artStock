@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->uuid('id')->nullable();
+            $table->uuid('id')->primary();
             $table->string('media');
-            $table->string('title')->nullable();
+            $table->string('title');
             $table->text('caption')->nullable();
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();

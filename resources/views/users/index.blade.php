@@ -1,10 +1,10 @@
 @php
-    use Illuminate\Support\Facades\File;
+    use App\Models\Content;use Illuminate\Support\Facades\File;
 @endphp
 @extends('layout.welcome')
 @push('css')
     <link rel="stylesheet" href="{{ asset('/css/user.css?v=3') }}">
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="{{ asset('/css/slick.css?v=3') }}">
 @endpush
 @section('content')
     @include('users.user_menu')
@@ -29,21 +29,23 @@
             </div>
             <div id="user_banner" class="mt-lg-4">
                 @php
-                    $files = File::allFiles(public_path('assets/img/home/banner'));
+                    $banners = File::allFiles(public_path('assets/img/home/banner'));
                 @endphp
                 <div id="carousel_banner" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        @foreach ($files as $file)
-                            <button type="button" data-bs-target="#carousel_banner" data-bs-slide-to="{{ $loop->iteration - 1 }}"
-                                    class="{{ $loop->first ? 'active' : '' }}" aria-current="{{ $loop->first ? 'true' : 'false' }}"
+                        @foreach ($banners as $banner)
+                            <button type="button" data-bs-target="#carousel_banner"
+                                    data-bs-slide-to="{{ $loop->iteration - 1 }}"
+                                    class="{{ $loop->first ? 'active' : '' }}"
+                                    aria-current="{{ $loop->first ? 'true' : 'false' }}"
                                     aria-label="Slide {{ $loop->iteration }}"></button>
                         @endforeach
                     </div>
                     <div class="carousel-inner">
-                        @foreach ($files as $file)
+                        @foreach ($banners as $banner)
                             <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="4000">
                                 <img
-                                    src="{{ asset('/assets/img/home/banner/' . $file->getFilename()) }}"
+                                    src="{{ asset('/assets/img/home/banner/' . $banner->getFilename()) }}"
                                     alt="" class="d-block w-100">
                             </div>
                         @endforeach
@@ -60,6 +62,22 @@
                     </button>
                 </div>
             </div>
+            <div id="user_latestOfTheDay">
+                <div class="user_sectionTitle mt-2 p-2">
+                    LATEST OF THE DAY
+                </div>
+                @php
+                    $latestPosts = Content::query()->whereDate('created_at', today())->take(10)->get();
+                @endphp
+                <div class="user_slickCarousel mt-2 mb-2">
+                    @foreach($latestPosts as $latestPost)
+                        <div>
+                            <img src="{{ asset($latestPost->getAttribute('media')) }}" alt="" height="200px">
+                        </div>
+                    @endforeach
+                </div>
+
+            </div>
         </div>
         <div class="col-1"></div>
     </div>
@@ -67,9 +85,11 @@
         {{--        @include("layout.footer")--}}
     </div>
 @endsection
+@push('slick')
+        <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-migrate-1.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/slick.min.js') }}"></script>
+@endpush
 @push('js')
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="{{ asset('assets/js/user.js') }}"></script>
+    <script src="{{ asset('js/user.js') }}"></script>
 @endpush
