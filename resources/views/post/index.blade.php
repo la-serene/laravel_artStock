@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div id="postOwnerZone" class="col-4">
-                <div class="row border-bottom pt-1 pb-1">
+                <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
                     <div class="col-6 flex-box">
                         <div class="row">
                             <div>
@@ -56,21 +56,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="row border-bottom p-3">
+                <div id="postCaption" class="row border-bottom p-3">
                     {{ $post->getAttribute('caption') }}
                 </div>
-                <div class="row border-bottom">
+                <div id="reactionZone" class="row border-bottom">
                     <div class="p-3 pt-2 pb-2">
-                        <img src="{{ asset("assets/icon/fontawesome/circle-arrow-up-solid.svg") }}" alt=""
-                             height="24px">
-                        <img src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
-                             height="24px">
-                        <span>
+                        <button class="btn btn-outline-white color-white btn-hover white-border p-1 no-margin">
+                            <img id="upvote-btn" src="{{ asset("assets/icon/fontawesome/circle-arrow-up-solid.svg") }}" alt=""
+                                 height="24px">
+                        </button>
+                        <button class="btn btn-outline-white color-white btn-hover white-border p-0 no-margin">
+                            <img id="downvote-btn" src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
+                                 height="24px">
+                        </button>
+                        <span class="p-1">
                             {{ $post->getAttribute('like_count') }}
                         </span>
                     </div>
                 </div>
-
+                <div id="commentZone" class="row container-lg">
+                </div>
+                <div id="forComment" class="row">
+                    <form class="d-flex full-width p-2 pe-0">
+                        <input class="form-control me-2 circle-border" type="text" aria-label="userComment">
+                        <button class="btn btn-outline-white color-white btn-hover white-border" type="button">
+                            <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt="" height="100%">
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

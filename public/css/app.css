@@ -120,6 +120,18 @@ html {
     font-size: 12px !important;
 }
 
+.btn-hover:hover {
+    opacity: 0.8;
+}
+
+.no-paddingRight {
+    padding-right: 0 !important;
+}
+
+.circle-border {
+    border-radius: 16px !important;
+}
+
 #footer {
     background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
 }
