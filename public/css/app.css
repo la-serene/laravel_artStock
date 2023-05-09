@@ -116,6 +116,10 @@ html {
     float: right !important;
 }
 
+.text-small {
+    font-size: 12px !important;
+}
+
 #footer {
     background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
 }
