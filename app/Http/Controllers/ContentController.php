@@ -15,12 +15,14 @@ class ContentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(string $id)
+    public function index(string $id): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $post = Content::find($id);
+        $user = current_user();
         return view('post.index', [
             'title' => $post->getAttribute('title'),
             'post' => $post,
+            'user' => $user,
         ]);
     }
 

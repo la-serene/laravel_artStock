@@ -92,6 +92,30 @@ html {
     display: block !important;
 }
 
+.pl10 {
+    padding-left: 10px !important;
+}
+
+.space-between {
+    justify-content: space-between !important;
+}
+
+.float-left {
+    float: left !important;
+}
+
+.ml10 {
+    margin-left: 10px !important;
+}
+
+.halfHeight {
+    height: 50% !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
 #footer {
     background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
 }

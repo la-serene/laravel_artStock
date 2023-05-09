@@ -20,3 +20,9 @@ ul li a {
 .user_sectionTitle {
     background-color: #ffe1e1;
 }
+
+#more-menu {
+    background-color: silver;
+    border-radius: 32px;
+    width: auto;
+}

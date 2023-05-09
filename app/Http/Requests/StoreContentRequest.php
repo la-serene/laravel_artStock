@@ -32,7 +32,7 @@ class StoreContentRequest extends FormRequest
             'caption' => [
                 'bail',
                 'string',
-                'nullable',
+                'required',
             ],
             'photo' => [
                 'bail',

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('media');
             $table->string('title');
-            $table->text('caption')->nullable();
+            $table->text('caption');
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();
             $table->string('postOwner_id');
