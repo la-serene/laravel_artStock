@@ -64,10 +64,10 @@
             </div>
             <div id="user_latestOfTheDay">
                 <div class="user_sectionTitle mt-2 p-2">
-                    LATEST OF THE DAY
+                    LATEST
                 </div>
                 @php
-                    $latestPosts = Content::query()->whereDate('created_at', today())->take(10)->get();
+                    $latestPosts = Content::query()->take(10)->get();
                 @endphp
                 <div class="user_slickCarousel mt-2 mb-2">
                     @foreach($latestPosts as $latestPost)
