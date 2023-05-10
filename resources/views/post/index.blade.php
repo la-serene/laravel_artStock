@@ -112,8 +112,9 @@
                     ]) }}",
                     type: 'GET',
                     success: function () {
-                        upBtn.find('i').addClass("color-green");
-                        downBtn.find('i').removeClass("color-red");
+                        updateValor("up")
+                        upBtn.find('i').addClass("color-green clicked");
+                        downBtn.find('i').removeClass("color-red clicked");
                     },
                     error: function (xhr) {
                         console.log(xhr.responseText);
@@ -133,14 +134,34 @@
                     ]) }}",
                     type: 'GET',
                     success: function () {
-                        upBtn.find('i').removeClass("color-green");
-                        downBtn.find('i').addClass("color-red");
+                        updateValor("down")
+                        upBtn.find('i').removeClass("color-green clicked");
+                        downBtn.find('i').addClass("color-red clicked");
                     },
                     error: function (xhr) {
                         console.log(xhr.responseText);
                     }
                 })
             })
+
+            function updateValor(type) {
+                let increment;
+                if (type === "up") {
+                    if (downBtn.find('i').hasClass("clicked")) {
+                        increment = 2;
+                    } else {
+                        increment = 1;
+                    }
+                } else {
+                    if (upBtn.find('i').hasClass("clicked")) {
+                        increment = -2;
+                    } else {
+                        increment = -1;
+                    }
+                }
+                valorCount += increment;
+                valorCountShow.text(valorCount);
+            }
         })
     </script>
 @endpush
