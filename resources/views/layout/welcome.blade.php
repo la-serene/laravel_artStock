@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('/assets/icon/default.ico') }}" type="image/x-icon"/>
     <link rel="stylesheet" href="{{ asset('/assets/icon/themify-icons-font/themify-icons/themify-icons.css?v=2') }}">
-    <link rel="stylesheet" href="{{ asset('/css/app.css?v=2') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css?v=3') }}">
     @stack('css')
+    <link rel="stylesheet" href="{{ asset('/css/app.css?v=3') }}">
     <title>{{ $title }}</title>
 </head>
 <body>

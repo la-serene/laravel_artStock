@@ -1,4 +1,7 @@
 @extends('users.header')
+@push('css')
+    <link rel="stylesheet" href="{{ asset('/css/user.css?v=3') }}">
+@endpush
 @section('topRightMost_zone')
     <div class="row container">
         <div class="col-8">
@@ -12,7 +15,7 @@
             </a>
         </div>
         <div class="col-4 container-fluid">
-            <img id="user_avatar" src="https://www.yarrah.com/media/81/9c/f0/1644837814/Yarrah-cat-meow.jpg"
+            <img id="user_avatar" src="{{ asset('/assets/img/temp/Yarrah-cat-meow.jpg') }}"
                  alt="">
         </div>
     </div>

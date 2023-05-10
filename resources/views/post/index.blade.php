@@ -6,7 +6,10 @@
 @endphp
 @extends('layout.welcome')
 @push('css')
-    <link rel="stylesheet" href="{{ asset('/css/user.css?v=3') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{{ asset('/css/post.css?v=3') }}">
 @endpush
 @section('content')
     @include('users.user_menu')
@@ -61,13 +64,11 @@
                 </div>
                 <div id="reactionZone" class="row border-bottom">
                     <div class="p-3 pt-2 pb-2">
-                        <button class="btn btn-upvote btn-outline-white color-white btn-hover p-1 no-margin">
-                            <img src="{{ asset("assets/icon/fontawesome/circle-arrow-up-solid.svg") }}" alt=""
-                                 height="24px">
+                        <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 no-margin">
+                            <i class="fa-solid fa-circle-arrow-up color-black fs24"></i>
                         </button>
-                        <button class="btn btn-downvote btn-outline-white color-white btn-hover p-0 no-margin">
-                            <img src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
-                                 height="24px">
+                        <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 no-margin">
+                            <i class="fa-solid fa-circle-arrow-down color-black fs24"></i>
                         </button>
                         <span id="valorCount-show" class="p-1">
                             {{ $post->getAttribute('valor_count') }}
@@ -97,7 +98,9 @@
             let valorCountShow = $('#valorCount-show');
             let valorCount = parseInt(valorCountShow.text());
 
-            const upBtn = $(".btn-upvote");
+            const upBtn = $("#btn-upvote");
+            console.log(upBtn)
+            console.log(upBtn.find("i"))
             upBtn.click(function () {
                 @php
                     $updateType = "incre";
@@ -108,18 +111,17 @@
                         'updateType' => $updateType,
                     ]) }}",
                     type: 'GET',
-                    success: function() {
-                        modifyValor("up");
-                        upBtn.setAttribute("class", "disabled");
-                        downBtn.remove("type");
+                    success: function () {
+                        upBtn.find('i').addClass("color-green");
+                        downBtn.find('i').removeClass("color-red");
                     },
-                    error: function(xhr) {
+                    error: function (xhr) {
                         console.log(xhr.responseText);
                     }
                 })
             })
 
-            const downBtn = $(".btn-downvote");
+            const downBtn = $("#btn-downvote");
             downBtn.click(function () {
                 @php
                     $updateType = "decre";
@@ -130,20 +132,15 @@
                         'updateType' => $updateType,
                     ]) }}",
                     type: 'GET',
-                    success: function() {
-                        modifyValor("down");
-                        upBtn.remove("type");
-                        downBtn.setAttribute("class", "disabled");
+                    success: function () {
+                        upBtn.find('i').removeClass("color-green");
+                        downBtn.find('i').addClass("color-red");
                     },
-                    error: function(xhr) {
+                    error: function (xhr) {
                         console.log(xhr.responseText);
                     }
                 })
             })
-
-            function modifyValor(type) {
-
-            }
         })
     </script>
 @endpush
