@@ -94,11 +94,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
-            const upBtn = $(".btn-upvote");
-            const downBtn = $(".btn-downvote");
             let valorCountShow = $('#valorCount-show');
             let valorCount = parseInt(valorCountShow.text());
 
+            const upBtn = $(".btn-upvote");
             upBtn.click(function () {
                 @php
                     $updateType = "incre";
@@ -110,9 +109,9 @@
                     ]) }}",
                     type: 'GET',
                     success: function() {
-                        valorCountShow.text(++valorCount);
-                        upBtn.addClass('disabled');
-                        downBtn.removeClass('disabled')
+                        modifyValor("up");
+                        upBtn.setAttribute("class", "disabled");
+                        downBtn.remove("type");
                     },
                     error: function(xhr) {
                         console.log(xhr.responseText);
@@ -120,6 +119,7 @@
                 })
             })
 
+            const downBtn = $(".btn-downvote");
             downBtn.click(function () {
                 @php
                     $updateType = "decre";
@@ -131,15 +131,19 @@
                     ]) }}",
                     type: 'GET',
                     success: function() {
-                        valorCountShow.text(--valorCount);
-                        upBtn.removeClass('disabled');
-                        downBtn.addClass('disabled');
+                        modifyValor("down");
+                        upBtn.remove("type");
+                        downBtn.setAttribute("class", "disabled");
                     },
                     error: function(xhr) {
                         console.log(xhr.responseText);
                     }
                 })
             })
+
+            function modifyValor(type) {
+
+            }
         })
     </script>
 @endpush
