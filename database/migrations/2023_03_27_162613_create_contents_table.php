@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();
             $table->string('postOwner_id');
-            $table->integer('up_count')->default(0);
-            $table->integer('down_count')->default(0);
+            $table->integer('valor_count')->default(0);
             $table->integer('view')->default(0);
             $table->timestamps();
         });

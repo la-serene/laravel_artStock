@@ -57,7 +57,7 @@ Route::controller(ContentController::class)
         Route::get('/new', 'create')->name('new');
         Route::post('/new/store', 'store')->name('store');
         Route::get('/{id}', 'index')->name('index');
-        Route::get('/update/{id}/{type}', 'updateQuantity')->name('updateQuantity');
+        Route::get('/update/{postId}/{updateType}', 'updateQuantity')->name('updateQuantity');
     });
 
 Route::fallback(function () {

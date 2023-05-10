@@ -69,15 +69,10 @@
                             <img src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
                                  height="24px">
                         </button>
-                        <span id="upCount-show" class="p-1">
-{{--                            {{ $post->getAttribute('up_count') }}--}}
-                            0
+                        <span id="valorCount-show" class="p-1">
+                            {{ $post->getAttribute('valor_count') }}
                         </span>
-                        up,
-                        <span id="downCount-show" class="p-1">
-                            {{ $post->getAttribute('down_count') }}
-                        </span>
-                        down
+                        valor
                     </div>
                 </div>
                 <div id="commentZone" class="row container-lg">
@@ -86,7 +81,8 @@
                     <form class="d-flex full-width p-2 pe-0">
                         <input class="form-control me-2 circle-border" type="text" aria-label="userComment">
                         <button class="btn btn-outline-white color-white btn-hover white-border" type="button">
-                            <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt="" height="100%">
+                            <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt=""
+                                 height="100%">
                         </button>
                     </form>
                 </div>
@@ -95,25 +91,54 @@
     </div>
 @endsection
 @push('js')
-    <script src="{{ asset('/js/jquery-1.11.0.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             const upBtn = $(".btn-upvote");
             const downBtn = $(".btn-downvote");
+            let valorCountShow = $('#valorCount-show');
+            let valorCount = parseInt(valorCountShow.text());
 
             upBtn.click(function () {
-                let upCountShow = $('#upCount-show');
-                let upCount = parseInt(upCountShow.text());
                 @php
-                    $type = "incre"
+                    $updateType = "incre";
                 @endphp
                 $.ajax({
-                    
+                    url: "{{ route('post.updateQuantity', [
+                        'postId' => $post->getAttribute('id'),
+                        'updateType' => $updateType,
+                    ]) }}",
+                    type: 'GET',
+                    success: function() {
+                        valorCountShow.text(++valorCount);
+                        upBtn.addClass('disabled');
+                        downBtn.removeClass('disabled')
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
                 })
-                    .done(function () {
-                        upCount++;
-                        upCountShow.text(upCount);
-                    })
+            })
+
+            downBtn.click(function () {
+                @php
+                    $updateType = "decre";
+                @endphp
+                $.ajax({
+                    url: "{{ route('post.updateQuantity', [
+                        'postId' => $post->getAttribute('id'),
+                        'updateType' => $updateType,
+                    ]) }}",
+                    type: 'GET',
+                    success: function() {
+                        valorCountShow.text(--valorCount);
+                        upBtn.removeClass('disabled');
+                        downBtn.addClass('disabled');
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                })
             })
         })
     </script>

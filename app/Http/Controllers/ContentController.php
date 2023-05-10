@@ -100,13 +100,13 @@ class ContentController extends Controller
     {
         $post = Content::find($id);
         if ($type == "incre") {
-            $upCount = $post->getAttribute('up_count');
-            $post->setAttribute('up_count', $upCount + 1);
+            $valorCount = $post->getAttribute('valor_count');
+            $post->setAttribute('valor_count', $valorCount + 1);
             $post->save();
-        } else if ($type == "decree") {
-            $downCount = $post->getAttribute('down_count');
-            if ($downCount != 0) {
-                $post->setAttribute('up_count', $downCount - 1);
+        } else {
+            if ($type == "decre") {
+                $valorCount = $post->getAttribute('valor_count');
+                $post->setAttribute('valor_count', $valorCount - 1);
                 $post->save();
             }
         }
