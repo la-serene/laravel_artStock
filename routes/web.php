@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -58,6 +59,13 @@ Route::controller(ContentController::class)
         Route::post('/new/store', 'store')->name('store');
         Route::get('/{id}', 'index')->name('index');
         Route::get('/update/{postId}/{updateType}', 'updateQuantity')->name('updateQuantity');
+    });
+
+Route::controller(CommentController::class)
+    ->middleware(['web', UserMiddleware::class])
+    ->name('comment.')
+    ->group(function () {
+        Route::post('/store', 'store')->name('store');
     });
 
 Route::fallback(function () {

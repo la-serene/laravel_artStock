@@ -79,8 +79,10 @@
                 <div id="commentZone" class="row container-lg">
                 </div>
                 <div id="forComment" class="row">
-                    <form class="d-flex full-width p-2 pe-0">
-                        <input class="form-control me-2 circle-border" type="text" aria-label="userComment">
+                    <form class="d-flex full-width p-2 pe-0" method="POST" action="{{ route("comment.store") }}">
+                        <input class="form-control me-2 circle-border" type="text" aria-label="userComment" name="comment">
+                        <input type="hidden" name="post_id" value="{{ $post->getAttribute("id") }}">
+                        <input type="hidden" name="user_id" value="{{ $user->getAttribute("user_id") }}">
                         <button class="btn btn-outline-white color-white btn-hover white-border" type="button">
                             <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt=""
                                  height="100%">
