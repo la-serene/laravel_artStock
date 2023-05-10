@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreContentRequest;
 use App\Http\Requests\UpdateContentRequest;
-use App\Models\content;
+use App\Models\Content;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -91,5 +91,24 @@ class ContentController extends Controller
     public function destroy(content $content)
     {
         //
+    }
+
+    /**
+     * Update upvote and downvote
+     */
+    public function updateQuantity(string $id, string $type): void
+    {
+        $post = Content::find($id);
+        if ($type == "incre") {
+            $upCount = $post->getAttribute('up_count');
+            $post->setAttribute('up_count', $upCount + 1);
+            $post->save();
+        } else if ($type == "decree") {
+            $downCount = $post->getAttribute('down_count');
+            if ($downCount != 0) {
+                $post->setAttribute('up_count', $downCount - 1);
+                $post->save();
+            }
+        }
     }
 }

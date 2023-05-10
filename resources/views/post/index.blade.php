@@ -61,17 +61,23 @@
                 </div>
                 <div id="reactionZone" class="row border-bottom">
                     <div class="p-3 pt-2 pb-2">
-                        <button class="btn btn-outline-white color-white btn-hover white-border p-1 no-margin">
-                            <img id="upvote-btn" src="{{ asset("assets/icon/fontawesome/circle-arrow-up-solid.svg") }}" alt=""
+                        <button class="btn btn-upvote btn-outline-white color-white btn-hover p-1 no-margin">
+                            <img src="{{ asset("assets/icon/fontawesome/circle-arrow-up-solid.svg") }}" alt=""
                                  height="24px">
                         </button>
-                        <button class="btn btn-outline-white color-white btn-hover white-border p-0 no-margin">
-                            <img id="downvote-btn" src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
+                        <button class="btn btn-downvote btn-outline-white color-white btn-hover p-0 no-margin">
+                            <img src="{{ asset("assets/icon/fontawesome/circle-arrow-down-solid.svg") }}" alt=""
                                  height="24px">
                         </button>
-                        <span class="p-1">
-                            {{ $post->getAttribute('like_count') }}
+                        <span id="upCount-show" class="p-1">
+{{--                            {{ $post->getAttribute('up_count') }}--}}
+                            0
                         </span>
+                        up,
+                        <span id="downCount-show" class="p-1">
+                            {{ $post->getAttribute('down_count') }}
+                        </span>
+                        down
                     </div>
                 </div>
                 <div id="commentZone" class="row container-lg">
@@ -88,3 +94,27 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script src="{{ asset('/js/jquery-1.11.0.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            const upBtn = $(".btn-upvote");
+            const downBtn = $(".btn-downvote");
+
+            upBtn.click(function () {
+                let upCountShow = $('#upCount-show');
+                let upCount = parseInt(upCountShow.text());
+                @php
+                    $type = "incre"
+                @endphp
+                $.ajax({
+                    
+                })
+                    .done(function () {
+                        upCount++;
+                        upCountShow.text(upCount);
+                    })
+            })
+        })
+    </script>
+@endpush

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('postOwner_id');
             $table->integer('up_count')->default(0);
             $table->integer('down_count')->default(0);
+            $table->integer('view')->default(0);
             $table->timestamps();
         });
     }
