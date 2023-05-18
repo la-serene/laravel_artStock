@@ -63,9 +63,10 @@ Route::controller(ContentController::class)
 
 Route::controller(CommentController::class)
     ->middleware(['web', UserMiddleware::class])
+    ->prefix("user/post")
     ->name('comment.')
     ->group(function () {
-        Route::post('/store', 'store')->name('store');
+        Route::post('/{id}/store', 'store')->name('store');
     });
 
 Route::fallback(function () {

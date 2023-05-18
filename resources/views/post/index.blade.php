@@ -79,7 +79,7 @@
                 <div id="commentZone" class="row container-lg">
                 </div>
                 <div id="forComment" class="row">
-                    <form class="d-flex full-width p-2 pe-0" method="POST" action="{{ route("comment.store") }}">
+                    <form class="d-flex full-width p-2 pe-0" method="POST" action="{{ route("comment.store", [ 'id' => $post->getAttribute('id')]) }}">
                         <input class="form-control me-2 circle-border" type="text" aria-label="userComment" name="comment">
                         <input type="hidden" name="post_id" value="{{ $post->getAttribute("id") }}">
                         <input type="hidden" name="user_id" value="{{ $user->getAttribute("user_id") }}">

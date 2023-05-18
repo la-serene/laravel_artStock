@@ -50,14 +50,14 @@
         })
 
         function updateValor(type) {
-            let increment;
+            let increment = 0;
             if (type === "up") {
                 if (downBtn.find('i').hasClass("clicked")) {
                     increment = 2;
                 } else {
                     increment = 1;
                 }
-            } else {
+            } else if (type === "down") {
                 if (upBtn.find('i').hasClass("clicked")) {
                     increment = -2;
                 } else {
