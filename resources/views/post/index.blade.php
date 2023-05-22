@@ -82,7 +82,7 @@
                     <form class="d-flex full-width p-2 pe-0" method="POST" action="{{ route("comment.store", ['postId' => $post->getAttribute('id')]) }}">
                         @csrf
                         <input class="form-control me-2 circle-border" type="text" aria-label="userComment" name="comment">
-                        <input type="hidden" name="post_id" value="{{ $post->getAttribute("id") }}">
+                        <input type="hidden" name="id" value="{{ $post->getAttribute("id") }}">
                         <input type="hidden" name="user_id" value="{{ $user->getAttribute("user_id") }}">
                         <button class="btn btn-outline-white color-white btn-hover white-border">
                             <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt=""

@@ -29,17 +29,17 @@ class StoreCommentRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'post_id' => [
+            'id' => [
                 'bail',
                 'required',
                 'string',
-                'exists',
+                'exists:posts',
             ],
             'user_id' => [
                 'bail',
                 'required',
                 'string',
-                'exists',
+                'exists:users',
             ]
         ];
     }
