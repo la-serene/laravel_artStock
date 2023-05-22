@@ -70,10 +70,10 @@
                         <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 no-margin">
                             <i class="fa-solid fa-circle-arrow-down color-black fs24"></i>
                         </button>
-                        <span id="valorCount-show" class="p-1">
-                            {{ $post->getAttribute('valor_count') }}
+                        <span id="quinxCount-show" class="p-1">
+                            {{ $post->getAttribute('quinx_count') }}
                         </span>
-                        valor
+                        quinx
                     </div>
                 </div>
                 <div id="commentZone" class="row container-lg">
@@ -95,5 +95,5 @@
 @endsection
 @push('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    @include('js.valorFunctionality')
+    @include('js.quinxFunctionality')
 @endpush

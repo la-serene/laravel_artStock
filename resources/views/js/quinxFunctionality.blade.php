@@ -1,7 +1,7 @@
 <script>
     $(document).ready(function () {
-        let valorCountShow = $('#valorCount-show');
-        let valorCount = parseInt(valorCountShow.text());
+        let quinxCountShow = $('#quinxCount-show');
+        let quinxCount = parseInt(quinxCountShow.text());
 
         const upBtn = $("#btn-upvote");
         console.log(upBtn)
@@ -64,8 +64,8 @@
                     increment = -1;
                 }
             }
-            valorCount += increment;
-            valorCountShow.text(valorCount);
+            quinxCount += increment;
+            quinxCountShow.text(quinxCount);
         }
     })
 </script>
