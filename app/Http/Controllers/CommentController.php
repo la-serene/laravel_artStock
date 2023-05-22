@@ -29,7 +29,7 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-
+        $validated = $request->validated();
     }
 
     /**
