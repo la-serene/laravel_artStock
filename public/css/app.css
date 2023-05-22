@@ -27,6 +27,10 @@ html {
     color: red !important;
 }
 
+.mh900 {
+    max-height: 900px !important;
+}
+
 .upCase {
     text-transform: uppercase !important;
 }

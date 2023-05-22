@@ -15,7 +15,7 @@
     @include('users.user_menu')
     <div class="container mt-2">
         <div class="row">
-            <div id="postZone" class="col-8 card no-padding">
+            <div id="postZone" class="col-8 card no-padding mh900">
                 <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
                 <div class="card-body">
                     <div class="row">
