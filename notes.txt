@@ -1,0 +1,1 @@
+1. 403 error : if including a request, check authorize() --> return true in that request file.

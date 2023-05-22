@@ -57,16 +57,16 @@ Route::controller(ContentController::class)
     ->group(function () {
         Route::get('/new', 'create')->name('new');
         Route::post('/new/store', 'store')->name('store');
-        Route::get('/{id}', 'index')->name('index');
+        Route::get('/{postId}', 'index')->name('index');
         Route::get('/update/{postId}/{updateType}', 'updateQuantity')->name('updateQuantity');
     });
 
 Route::controller(CommentController::class)
-    ->middleware(['web', UserMiddleware::class])
     ->prefix("user/post")
+    ->middleware(['web', UserMiddleware::class])
     ->name('comment.')
     ->group(function () {
-        Route::post('/{id}/store', 'store')->name('store');
+        Route::post('/{postId}/store', 'store')->name('store');
     });
 
 Route::fallback(function () {
