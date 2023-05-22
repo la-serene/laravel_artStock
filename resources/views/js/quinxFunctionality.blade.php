@@ -3,8 +3,6 @@
     let quinxCount = parseInt(quinxCountShow.text());
 
     const upBtn = $("#btn-upvote");
-    console.log(upBtn)
-    console.log(upBtn.find("i"))
     upBtn.click(function () {
         @php
             $updateType = "incre";
