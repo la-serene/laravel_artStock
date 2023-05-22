@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\CanResetPassword;
@@ -29,4 +30,9 @@ class User extends Model implements Authenticatable, CanResetPassword
         'avatar',
         'payment_method',
     ];
+
+    public function comment(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
