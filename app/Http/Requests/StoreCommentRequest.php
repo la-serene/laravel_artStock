@@ -24,9 +24,22 @@ class StoreCommentRequest extends FormRequest
     {
         return [
             'comment' => [
+                'bail',
                 'required',
                 'string',
                 'max:255'
+            ],
+            'post_id' => [
+                'bail',
+                'required',
+                'string',
+                'exists',
+            ],
+            'user_id' => [
+                'bail',
+                'required',
+                'string',
+                'exists',
             ]
         ];
     }
