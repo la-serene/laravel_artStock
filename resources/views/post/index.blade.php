@@ -27,7 +27,12 @@
         </div>
         <div id="contentZone" class="row">
             <div id="postZone" class="col-8 card p-0">
-                <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
+                <div id="media-containter">
+                    <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
+                    <div id="interactive-btns">
+                        <i class="fa-thin fa-share-from-square" style="color: #ffffff;"></i>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6 card-title">
@@ -40,51 +45,53 @@
                 </div>
             </div>
             <div id="postOwnerZone" class="col-4">
-                <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
-                    <div class="col-6 flex-box">
-                        <div class="row">
-                            <div>
-                                <img class="user_avatar"
-                                     src="{{ $user->getAvatarUrl() }}"
-                                     alt="">
+                <div id="userZone">
+                    <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
+                        <div class="col-6 flex-box">
+                            <div class="row">
+                                <div>
+                                    <img class="user_avatar"
+                                         src="{{ $user->getAvatarUrl() }}"
+                                         alt="">
+                                </div>
+                            </div>
+                            <div class="ml10">
+                                <div class="row halfHeight">
+                                    <div class="fs-5">
+                                        {{ $user->getAttribute('username') }}
+                                    </div>
+                                </div>
+                                <div class="row halfHeight">
+                                    <div class="text-small">
+                                        {{ $post->getAttribute('created_at')->format('d-m-Y H:m') }}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="ml10">
-                            <div class="row halfHeight">
-                                <div class="fs-5">
-                                    {{ $user->getAttribute('username') }}
-                                </div>
-                            </div>
-                            <div class="row halfHeight">
-                                <div class="text-small">
-                                    {{ $post->getAttribute('created_at')->format('d-m-Y H:m') }}
-                                </div>
+                        <div class="col-6">
+                            <div class="float-right">
+                                <button type="button" id="more-menu">
+                                    <i class="ti-more p-2"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="float-right">
-                            <button type="button" id="more-menu">
-                                <i class="ti-more p-2"></i>
+                    <div id="postCaption" class="row border-bottom p-3 caption-text">
+                        {{ $post->getAttribute('caption') }}
+                    </div>
+                    <div id="reactionZone" class="row border-bottom">
+                        <div class="p-3 pt-2 pb-2">
+                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0">
+                                <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
                             </button>
-                        </div>
-                    </div>
-                </div>
-                <div id="postCaption" class="row border-bottom p-3 caption-text">
-                    {{ $post->getAttribute('caption') }}
-                </div>
-                <div id="reactionZone" class="row border-bottom">
-                    <div class="p-3 pt-2 pb-2">
-                        <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0">
-                            <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
-                        </button>
-                        <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0">
-                            <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
-                        </button>
-                        <span id="quinxCount-show" class="p-1">
+                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0">
+                                <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
+                            </button>
+                            <span id="quinxCount-show" class="p-1">
                             {{ $post->getAttribute('quinx_count') }}
                         </span>
-                        quinx
+                            quinx
+                        </div>
                     </div>
                 </div>
                 <div id="commentZone" class="row scrollable-div border-bottom">
@@ -92,7 +99,7 @@
                         $comments = $post->comment()->get();
                     @endphp
                     @foreach($comments as $comment)
-                        <div class="row p-1 m-1">
+                        <div class="row p-1 m-1 mx-0">
                             <div class="col-2 px-0 text-center">
                                 <img class="user_avatar w40 h40"
                                      src="{{ $comment->user->getAvatarUrl() }}"

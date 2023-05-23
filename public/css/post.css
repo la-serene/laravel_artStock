@@ -9,4 +9,19 @@
     background-color: #f0f2f5;
 }
 
+#postZone img:hover {
+    filter: brightness(0.7);
+    cursor: pointer;
+}
+
+#media-containter img {
+    position: relative;
+}
+
+#media-containter #interactive-btns {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 
