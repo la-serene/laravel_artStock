@@ -18,10 +18,10 @@ class UserFactory extends Factory
     public function definition(): array
     {
         $faker = \Faker\Factory::create('en_GB');
-        $userID = strtoupper($faker->lexify() . $faker->numerify('####'));
+        $userTag = strtoupper($faker->lexify() . $faker->numerify('####'));
         $gender = $faker->randomElement([0, 1]);
         return [
-            'user_id' => $userID,
+            'user_tag' => $userTag,
             'username' => $faker->userName(),
             'password' => $faker->password(8, 12),
             'first_name' => $faker->firstName($gender ? PersonAlias::GENDER_MALE : PersonAlias::GENDER_FEMALE),

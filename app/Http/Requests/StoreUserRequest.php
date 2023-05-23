@@ -19,11 +19,11 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => [
+            'user_tag' => [
                 'bail',
                 'string',
                 'max:255',
-                'unique:App\Models\User,user_id',
+                'unique:App\Models\User,user_tag',
             ],
             'username' => [
                 'bail',

@@ -29,18 +29,6 @@ class StoreCommentRequest extends FormRequest
                 'string',
                 'max:255'
             ],
-            'id' => [
-                'bail',
-                'required',
-                'string',
-                'exists:posts',
-            ],
-            'user_id' => [
-                'bail',
-                'required',
-                'string',
-                'exists:users',
-            ]
         ];
     }
 }

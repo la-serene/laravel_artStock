@@ -74,7 +74,7 @@ class LoginController extends Controller
     public function store(StoreUserRequest $request): \Illuminate\Foundation\Application|Redirector|RedirectResponse|Application
     {
         $request = $request->validated();
-        $request['user_id'] = substr($request['username'], 0, 4) . Faker::create()->numberBetween(1000, 9999);
+        $request['user_tag'] = substr($request['username'], 0, 4) . Faker::create()->numberBetween(1000, 9999);
         $request['password'] = Hash::make($request['password']);
         User::create($request);
 

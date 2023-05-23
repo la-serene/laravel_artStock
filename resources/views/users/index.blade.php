@@ -17,7 +17,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('post.new') }}">New Post</a>
+                        <a class="nav-link" href="{{ route('post.create') }}">New Post</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Trending</a>

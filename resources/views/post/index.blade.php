@@ -15,6 +15,17 @@
     @include('users.user_menu')
     <div class="container mt-2">
         <div class="row">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+        <div class="row">
             <div id="postZone" class="col-8 card no-padding mh900">
                 <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
                 <div class="card-body">
@@ -76,14 +87,13 @@
                         quinx
                     </div>
                 </div>
-                <div id="commentZone" class="row container-lg">
+                <div id="commentZone" class="row" style="height: 20px; background-color: black; width: 100%">
+
                 </div>
                 <div id="forComment" class="row">
                     <form class="d-flex full-width p-2 pe-0" method="POST" action="{{ route("comment.store", ['postId' => $post->getAttribute('id')]) }}">
                         @csrf
                         <input class="form-control me-2 circle-border" type="text" aria-label="userComment" name="comment">
-                        <input type="hidden" name="id" value="{{ $post->getAttribute("id") }}">
-                        <input type="hidden" name="user_id" value="{{ $user->getAttribute("user_id") }}">
                         <button class="btn btn-outline-white color-white btn-hover white-border">
                             <img src="{{ asset("assets/icon/fontawesome/circle-chevron-right-solid.svg") }}" alt=""
                                  height="100%">

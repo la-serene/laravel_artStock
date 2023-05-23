@@ -55,8 +55,8 @@ Route::controller(ContentController::class)
     ->middleware(['web', UserMiddleware::class])
     ->name('post.')
     ->group(function () {
-        Route::get('/new', 'create')->name('new');
-        Route::post('/new/store', 'store')->name('store');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/create/store', 'store')->name('store');
         Route::get('/{postId}', 'index')->name('index');
         Route::get('/update/{postId}/{updateType}', 'updateQuantity')->name('updateQuantity');
     });

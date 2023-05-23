@@ -17,7 +17,7 @@ class User extends Model implements Authenticatable, CanResetPassword
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
+        'user_tag',
         'username',
         'password',
         'first_name',
@@ -30,12 +30,12 @@ class User extends Model implements Authenticatable, CanResetPassword
         'avatar',
         'payment_method',
     ];
-    public function post(): HasMany
-    {
-        return $this->hasMany(Content::class);
-    }
     public function comment(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+    public function post(): HasMany
+    {
+        return $this->hasMany(Content::class);
     }
 }

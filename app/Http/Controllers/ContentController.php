@@ -42,8 +42,8 @@ class ContentController extends Controller
     public function store(StoreContentRequest $request): RedirectResponse
     {
         $user = current_user();
-        $userID = $user->getAttribute('user_id');
-        $path = $request['photo']->store('assets/user/'.$userID.'/resource', [
+        $userTag = $user->getAttribute('user_Tag');
+        $path = $request['photo']->store('assets/user/'.$userTag.'/resource', [
             'disk' => 'public_uploads',
         ]);
         $validated = $request->validated();
