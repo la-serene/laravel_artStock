@@ -43,14 +43,11 @@ class ContentController extends Controller
     {
         $user = current_user();
         $userID = $user->getAttribute('user_id');
-
-        $validated = $request->validated();
         $path = $request['photo']->store('assets/user/'.$userID.'/resource', [
             'disk' => 'public_uploads',
         ]);
-
+        $validated = $request->validated();
         $validated['media'] = $path;
-
         $request->user()->post()->create($validated);
 
         return redirect()->route('user.index');
