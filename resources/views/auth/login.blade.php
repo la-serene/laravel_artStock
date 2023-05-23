@@ -39,7 +39,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col-4 no-padding flex-box flex-end mt-8">
+            <div class="col-4 p-0 flex-box flex-end mt-8">
                 <a href="{{ route('signup') }}">
                     Don't have an account yet? Sign up
                 </a>

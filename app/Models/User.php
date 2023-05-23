@@ -38,4 +38,11 @@ class User extends Model implements Authenticatable, CanResetPassword
     {
         return $this->hasMany(Content::class);
     }
+    public function getAvatarUrl(): string
+    {
+        if ($this->getAttribute('avatar') == null)
+            return asset("/assets/img/default/avatar.jpg");
+        else
+            return $this->getAttribute('avatar');
+    }
 }

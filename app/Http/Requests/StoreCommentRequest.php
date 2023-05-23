@@ -26,7 +26,7 @@ class StoreCommentRequest extends FormRequest
             'comment' => [
                 'bail',
                 'required',
-                'string',
+                'text',
                 'max:255'
             ],
         ];

@@ -8,7 +8,7 @@
 @endpush
 @section('content')
     @include('users.user_menu')
-    <div class="row no-margin">
+    <div class="row m-0">
         <div class="col-1"></div>
         <div class="col-10">
             <div id="user_navbar">

@@ -1,0 +1,8 @@
+#footer {
+    background: linear-gradient(to right, #FCE38A, #E94F37, #1D2671);
+}
+
+#footer a {
+    color: white;
+    text-decoration: none;
+}

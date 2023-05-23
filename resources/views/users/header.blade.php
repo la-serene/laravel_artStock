@@ -1,4 +1,4 @@
-<div id="user_header" class="container-fluid row no-margin">
+<div id="user_header" class="container-fluid row m-0">
     <div class="col-2">
         <a href="{{ route('user.index') }}">
             <img src="{{ asset('/assets/logo/cover-removebg-preview (1).png') }}" alt="" class="full-width">

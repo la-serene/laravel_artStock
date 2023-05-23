@@ -15,7 +15,7 @@
             </a>
         </div>
         <div class="col-4 container-fluid">
-            <img id="user_avatar" src="{{ asset('/assets/img/temp/Yarrah-cat-meow.jpg') }}"
+            <img class="user_avatar" src="{{ $user->getAvatarUrl() }}"
                  alt="">
         </div>
     </div>
