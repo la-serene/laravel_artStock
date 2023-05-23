@@ -98,13 +98,15 @@
                                      src="{{ $comment->user->getAvatarUrl() }}"
                                      alt="">
                             </div>
-                            <div class="col-10 px-3 py-1" style="border-radius: 20px; background-color: #f0f2f5;">
-                                <div>
-                                    <div>
-                                        {{ $comment->user->username }}
-                                    </div>
-                                    <div class="caption-text">
-                                        {{ $comment->getAttribute('comment') }}
+                            <div class="col-10 p-0">
+                                <div class="card comment-block">
+                                    <div class="card-body px-3 py-1">
+                                        <div class="card-title fw-medium">
+                                            {{ $comment->user->getAttribute('username') }}
+                                        </div>
+                                        <div class="card-text my-1 caption-text">
+                                            {{ $comment->getAttribute('comment') }}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -3,4 +3,10 @@
     margin-right: 80px;
 }
 
+.comment-block {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #f0f2f5;
+}
+
 
