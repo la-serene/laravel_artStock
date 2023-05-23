@@ -87,7 +87,7 @@
                         quinx
                     </div>
                 </div>
-                <div id="commentZone" class="row" style="height: 20px; background-color: black; width: 100%">
+                <div id="commentZone" class="row no-margin p-2" style="height: 20px; background-color: black; width: 100%">
 
                 </div>
                 <div id="forComment" class="row">
