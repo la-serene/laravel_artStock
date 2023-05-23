@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('caption');
             $table->string('prompt')->nullable();
             $table->string('collection_id')->nullable();
-            $table->string('postOwner_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->integer('quinx_count')->default(0);
             $table->integer('view')->default(0);
             $table->timestamps();

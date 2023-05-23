@@ -30,7 +30,7 @@ class CommentController extends Controller
     public function store(StoreCommentRequest $request)
     {
         $validated = $request->validated();
-        $request->user()->chirps()->create($validated);
+        $request->user()->comment()->create($validated);
     }
 
     /**

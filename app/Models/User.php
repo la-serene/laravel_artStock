@@ -29,8 +29,12 @@ class User extends Model implements Authenticatable, CanResetPassword
         'phone_number',
         'avatar',
         'payment_method',
+        'comment',
     ];
-
+    public function post(): HasMany
+    {
+        return $this->hasMany(Content::class);
+    }
     public function comment(): HasMany
     {
         return $this->hasMany(Comment::class);

@@ -44,18 +44,14 @@ class ContentController extends Controller
         $user = current_user();
         $userID = $user->getAttribute('user_id');
 
-        $request = $request->validated();
+        $validated = $request->validated();
         $path = $request['photo']->store('assets/user/'.$userID.'/resource', [
             'disk' => 'public_uploads',
         ]);
 
-        $post['media'] = $path;
-        $post['title'] = $request['title'];
-        $post['caption'] = $request['caption'];
-        $post['prompt'] = $request['prompt'];
-        $post['postOwner_id'] = $userID;
+        $validated['media'] = $path;
 
-        Content::create($post);
+        $request->user()->post()->create($validated);
 
         return redirect()->route('user.index');
 
