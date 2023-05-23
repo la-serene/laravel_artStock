@@ -27,10 +27,14 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCommentRequest $request)
+    public function store(StoreCommentRequest $request): \Illuminate\Http\RedirectResponse
     {
         $validated = $request->validated();
-        $request->user()->comment()->create($validated);
+        $request->user()->post()->first()->comment()->create($validated);
+
+        return redirect()->route('post.index', [
+            'postId' => $validated['id'],
+        ]);
     }
 
     /**

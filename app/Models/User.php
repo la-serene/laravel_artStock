@@ -29,7 +29,6 @@ class User extends Model implements Authenticatable, CanResetPassword
         'phone_number',
         'avatar',
         'payment_method',
-        'comment',
     ];
     public function post(): HasMany
     {
