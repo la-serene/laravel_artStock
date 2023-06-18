@@ -9,19 +9,35 @@
     background-color: #f0f2f5;
 }
 
-#postZone img:hover {
-    filter: brightness(0.7);
-    cursor: pointer;
-}
-
-#media-containter img {
+#media-containter {
     position: relative;
 }
 
-#media-containter #interactive-btns {
+#media-containter:hover {
+    cursor: pointer;
+}
+
+#media-containter:hover #interactive {
+    display: block;
+}
+
+#interactive {
     position: absolute;
+    width: 100%;
     top: 0;
-    right: 0;
+    display: none;
+}
+
+#interactive-btns {
+    float: right;
+}
+
+.interactive-btn {
+    background-color: transparent;
+}
+
+.interactive-btn:hover {
+    opacity: 0.5;
 }
 
 

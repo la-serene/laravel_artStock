@@ -56,7 +56,7 @@
     </form>
 @endsection
 @push('js')
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?v=3" async defer></script>
     <script>
         window.addEventListener("pageshow", function(event) {
             var historyTraversal = event.persisted ||

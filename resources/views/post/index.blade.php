@@ -13,7 +13,7 @@
 @endpush
 @section('content')
     @include('users.user_menu')
-    <div class="container mt-2">
+    <div class="container-sm mt-2">
         <div class="row">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -29,8 +29,18 @@
             <div id="postZone" class="col-8 card p-0">
                 <div id="media-containter">
                     <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
-                    <div id="interactive-btns">
-                        <i class="fa-thin fa-share-from-square" style="color: #ffffff;"></i>
+                    <div id="interactive" class="py-2">
+                        <div id="interactive-btns" class="p-1">
+                            <button class="interactive-btn">
+                                <i class="fa-regular fa-star mx-1" style="color: #ffffff;"></i>
+                            </button>
+                            <button class="interactive-btn">
+                                <i class="fa-regular fa-bookmark mx-1" style="color: #fafafa;"></i>
+                            </button>
+                            <button class="interactive-btn">
+                                <i class="fa-regular fa-share-from-square mx-1" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
@@ -49,11 +59,11 @@
                     <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
                         <div class="col-6 flex-box">
                             <div class="row">
-                                <div>
+                                <a href="{{ route('user.profile') }}">
                                     <img class="user_avatar"
                                          src="{{ $user->getAvatarUrl() }}"
                                          alt="">
-                                </div>
+                                </a>
                             </div>
                             <div class="ml10">
                                 <div class="row halfHeight">
@@ -137,6 +147,7 @@
     </div>
 @endsection
 @push('js')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?v=3"></script>
     @include('js.quinxFunctionality')
+    <script src="{{ asset("/js/post.js?v=3") }}"></script>
 @endpush

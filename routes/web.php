@@ -48,6 +48,7 @@ Route::controller(UserController::class)
     ->group(function () {
         Route::get('/index', 'index')->name('index');
         Route::get('/logout', 'logout')->name('logout');
+        Route::get('/profile', 'profile')->name('profile');
     });
 
 Route::controller(ContentController::class)

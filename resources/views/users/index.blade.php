@@ -86,10 +86,10 @@
     </div>
 @endsection
 @push('slick')
-        <script src="{{ asset('js/jquery-1.11.0.min.js') }}"></script>
-        <script src="{{ asset('js/jquery-migrate-1.2.1.min.js') }}"></script>
-        <script src="{{ asset('js/slick.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-1.11.0.min.js?v=3') }}"></script>
+        <script src="{{ asset('js/jquery-migrate-1.2.1.min.js?v=3') }}"></script>
+        <script src="{{ asset('js/slick.min.js?v=3') }}"></script>
 @endpush
 @push('js')
-    <script src="{{ asset('js/user.js') }}"></script>
+    <script src="{{ asset('js/user.js?v=3') }}"></script>
 @endpush
