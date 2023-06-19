@@ -89,19 +89,12 @@ class ContentController extends Controller
     /**
      * Update upvote and downvote
      */
-    public function updateQuantity(string $id, string $type): void
+    public function updateQuantity(string $id, int $increment): void
     {
         $post = Content::find($id);
-        if ($type == "incre") {
-            $quinxCount = $post->getAttribute('quinx_count');
-            $post->setAttribute('quinx_count', $quinxCount + 1);
-            $post->save();
-        } else {
-            if ($type == "decre") {
-                $quinxCount = $post->getAttribute('quinx_count');
-                $post->setAttribute('quinx_count', $quinxCount - 1);
-                $post->save();
-            }
-        }
+        $quinxCount = $post->getAttribute('quinx_count');
+        $post->setAttribute('quinx_count', $quinxCount + $increment);
+        $post->save();
+
     }
 }

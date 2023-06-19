@@ -91,10 +91,10 @@
                     </div>
                     <div id="reactionZone" class="row border-bottom">
                         <div class="p-3 pt-2 pb-2">
-                            <button id="btn-upvote" aria-pressed="false" class="btn btn-outline-white color-white btn-hover p-1 m-0">
+                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0">
                                 <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
                             </button>
-                            <button id="btn-downvote" aria-pressed="false" class="btn btn-outline-white color-white btn-hover p-0 m-0">
+                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0">
                                 <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
                             </button>
                             <span id="quinxCount-show" class="p-1">
@@ -149,5 +149,4 @@
 @push('js')
     <script src="https://code.jquery.com/jquery-3.6.0.min.js?v=3"></script>
     @include('js.quinxFunctionality')
-    <script src="{{ asset("/js/post.js?v=3") }}"></script>
 @endpush

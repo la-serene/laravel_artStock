@@ -1,23 +1,17 @@
 <script>
     let quinxCountShow = $('#quinxCount-show');
     let quinxCount = parseInt(quinxCountShow.text());
-
+    console.log("hi")
     const upBtn = $("#btn-upvote");
+    console.log(upBtn);
     if (!upBtn.find('i').hasClass('clicked')) {
         upBtn.click(function () {
-            @php
-                $updateType = "incre";
-            @endphp
+            let increment = updateQuinx("up");
             $.ajax({
-                url: "{{ route('post.updateQuantity', [
-                    'postId' => $post->getAttribute('id'),
-                    'updateType' => $updateType,
-                ]) }}",
+                url: "http://laravel_artstock.test/user/post/update/" + "{{ $post->getAttribute('id') }}" + "/" + increment,
                 type: 'GET',
                 success: function () {
-                    updateQuinx("up")
-                    upBtn.find('i').addClass("color-green clicked");
-                    downBtn.find('i').removeClass("color-red clicked");
+                    console.log("upvote success");
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);
@@ -29,19 +23,12 @@
     const downBtn = $("#btn-downvote");
     if (!downBtn.find('i').hasClass("clicked")) {
         downBtn.click(function () {
-            @php
-                $updateType = "decre";
-            @endphp
+            let increment = updateQuinx("down");
             $.ajax({
-                url: "{{ route('post.updateQuantity', [
-                    'postId' => $post->getAttribute('id'),
-                    'updateType' => $updateType,
-                ]) }}",
+                url: "http://laravel_artstock.test/user/post/update/" + "{{ $post->getAttribute('id') }}" + "/" + increment,
                 type: 'GET',
                 success: function () {
-                    updateQuinx("down")
-                    upBtn.find('i').removeClass("color-green clicked");
-                    downBtn.find('i').addClass("color-red clicked");
+                    console.log("downvote success");
                 },
                 error: function (xhr) {
                     console.log(xhr.responseText);
@@ -55,17 +42,30 @@
         if (type === "up") {
             if (downBtn.find('i').hasClass("clicked")) {
                 increment = 2;
+                downBtn.find('i').removeClass("color-red clicked");
+                upBtn.find('i').addClass("color-green clicked");
+            } else if (upBtn.find('i').hasClass('clicked')) {
+                increment = -1;
+                upBtn.find('i').removeClass("color-green clicked");
             } else {
                 increment = 1;
+                upBtn.find('i').addClass("color-green clicked");
             }
         } else if (type === "down") {
             if (upBtn.find('i').hasClass("clicked")) {
                 increment = -2;
+                upBtn.find('i').removeClass("color-green clicked");
+                downBtn.find('i').addClass("color-red clicked");
+            } else if (downBtn.find('i').hasClass("clicked")) {
+                increment = 1;
+                downBtn.find('i').removeClass("color-red clicked");
             } else {
                 increment = -1;
+                downBtn.find('i').addClass("color-red clicked");
             }
         }
         quinxCount += increment;
         quinxCountShow.text(quinxCount);
+        return increment;
     }
 </script>

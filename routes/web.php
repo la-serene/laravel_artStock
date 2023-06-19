@@ -59,7 +59,7 @@ Route::controller(ContentController::class)
         Route::get('/create', 'create')->name('create');
         Route::post('/create/store', 'store')->name('store');
         Route::get('/{postId}', 'index')->name('index');
-        Route::get('/update/{postId}/{updateType}', 'updateQuantity')->name('updateQuantity');
+        Route::get('/update/{postId}/{increment}', 'updateQuantity')->name('updateQuantity');
     });
 
 Route::controller(CommentController::class)
