@@ -91,10 +91,10 @@
                     </div>
                     <div id="reactionZone" class="row border-bottom">
                         <div class="p-3 pt-2 pb-2">
-                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0">
+                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0" post-id="{{ $post->getAttribute('id') }}">
                                 <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
                             </button>
-                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0">
+                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0" post-id="{{ $post->getAttribute('id') }}">
                                 <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
                             </button>
                             <span id="quinxCount-show" class="p-1">
