@@ -1,9 +1,8 @@
 <script>
     let quinxCountShow = $('#quinxCount-show');
     let quinxCount = parseInt(quinxCountShow.text());
-    console.log("hi")
+
     const upBtn = $("#btn-upvote");
-    console.log(upBtn);
     if (!upBtn.find('i').hasClass('clicked')) {
         upBtn.click(function () {
             let increment = updateQuinx("up");
