@@ -71,7 +71,8 @@
                 @endphp
                 <div class="user_slickCarousel mt-2 mb-2">
                     @foreach($latestPosts as $latestPost)
-                        <a class="block" href="{{ route('post.index', ['postId' => $latestPost->getAttribute('id')]) }}">
+                        <a class="block"
+                           href="{{ route('post.index', ['postId' => $latestPost->getAttribute('id')]) }}">
                             <img src="{{ asset($latestPost->getAttribute('media')) }}" alt="" height="200px">
                         </a>
                     @endforeach
@@ -86,9 +87,9 @@
     </div>
 @endsection
 @push('slick')
-        <script src="{{ asset('js/jquery-1.11.0.min.js?v=3') }}"></script>
-        <script src="{{ asset('js/jquery-migrate-1.2.1.min.js?v=3') }}"></script>
-        <script src="{{ asset('js/slick.min.js?v=3') }}"></script>
+    <script src="{{ asset('js/jquery-1.11.0.min.js?v=3') }}"></script>
+    <script src="{{ asset('js/jquery-migrate-1.2.1.min.js?v=3') }}"></script>
+    <script src="{{ asset('js/slick.min.js?v=3') }}"></script>
 @endpush
 @push('js')
     <script src="{{ asset('js/user.js?v=3') }}"></script>

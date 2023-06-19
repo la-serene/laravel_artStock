@@ -3,6 +3,16 @@
     margin-right: 80px;
 }
 
+#postZone {
+    width: 64%;
+    float: left;
+}
+
+#postOwnerZone {
+    width: 33%;
+    margin-left: auto;
+}
+
 .comment-block {
     display: inline-block;
     border-radius: 20px;
@@ -39,5 +49,4 @@
 .interactive-btn:hover {
     opacity: 0.5;
 }
-
 

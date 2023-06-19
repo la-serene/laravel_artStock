@@ -25,8 +25,8 @@
                 </div>
             @endif
         </div>
-        <div id="contentZone" class="row">
-            <div id="postZone" class="col-8 card p-0">
+        <div id="contentZone">
+            <div id="postZone" class="card p-0">
                 <div id="media-containter">
                     <img src="{{ asset($post->getAttribute('media')) }}" alt="" width="100%">
                     <div id="interactive" class="py-2">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div id="postOwnerZone" class="col-4">
+            <div id="postOwnerZone">
                 <div id="userZone">
                     <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
                         <div class="col-6 flex-box">
@@ -91,10 +91,10 @@
                     </div>
                     <div id="reactionZone" class="row border-bottom">
                         <div class="p-3 pt-2 pb-2">
-                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0">
+                            <button id="btn-upvote" aria-pressed="false" class="btn btn-outline-white color-white btn-hover p-1 m-0">
                                 <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
                             </button>
-                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0">
+                            <button id="btn-downvote" aria-pressed="false" class="btn btn-outline-white color-white btn-hover p-0 m-0">
                                 <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
                             </button>
                             <span id="quinxCount-show" class="p-1">
