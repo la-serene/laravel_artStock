@@ -61,7 +61,7 @@
                             <div class="row">
                                 <a href="{{ route('user.profile', ['id' => $post->user->getAttribute('id')]) }}">
                                     <img class="user_avatar"
-                                         src="{{ $post->get_user()->getAvatarUrl() }}"
+                                         src="{{ $post->user->getAvatarUrl() }}"
                                          alt="">
                                 </a>
                             </div>
@@ -110,11 +110,13 @@
                     @endphp
                     @foreach($comments as $comment)
                         <div class="row p-1 m-1 mx-0">
-                            <div class="col-2 px-0 text-center">
-                                <img class="user_avatar w40 h40"
-                                     src="{{ $comment->user->getAvatarUrl() }}"
-                                     alt="">
-                            </div>
+                            <a href="{{ route('user.profile', ['id' => $comment->user->getAttribute('id')]) }}" class="block">
+                                <div class="col-2 px-0 text-center">
+                                    <img class="user_avatar w40 h40"
+                                         src="{{ $comment->user->getAvatarUrl() }}"
+                                         alt="">
+                                </div>
+                            </a>
                             <div class="col-10 p-0">
                                 <div class="card comment-block">
                                     <div class="card-body px-3 py-1">
