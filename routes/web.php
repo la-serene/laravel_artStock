@@ -57,7 +57,7 @@ Route::controller(ContentController::class)
     ->name('post.')
     ->group(function () {
         Route::get('/create', 'create')->name('create');
-        Route::post('/create/store', 'store')->name('store');
+        Route::post('/store', 'store')->name('store');
         Route::get('/{postId}', 'index')->name('index');
         Route::get('/update/{postId}/{increment}', 'updateQuantity')->name('updateQuantity');
     });
