@@ -25,4 +25,14 @@ class Comment extends Model
     {
         return $this->belongsTo(Content::class, "post_id");
     }
+
+    private function get_user()
+    {
+        return $this->user()->get()[0];
+    }
+
+    private function get_post()
+    {
+        return $this->post()->get()[0];
+    }
 }

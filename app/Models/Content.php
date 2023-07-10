@@ -28,6 +28,10 @@ class Content extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function get_user()
+    {
+        return $this->user()->get()[0];
+    }
     public function comment(): HasMany
     {
         return $this->hasMany(Comment::class, "post_id");

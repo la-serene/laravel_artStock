@@ -22,7 +22,16 @@ class UserController extends Controller
     public function index(): View|\Illuminate\Foundation\Application|Factory|Application
     {
         return view('users.index', [
-            'title' => 'artStock'
+            'title' => 'artStock',
+        ]);
+    }
+
+    public function profile(string $id)
+    {
+        $user = User::find($id);
+        return view('users.profile', [
+            'title' => 'artStock',
+            'user' => $user,
         ]);
     }
 
