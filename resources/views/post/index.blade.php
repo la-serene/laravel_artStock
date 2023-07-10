@@ -59,7 +59,7 @@
                     <div id="postOwnerInfo" class="row border-bottom pt-1 pb-1">
                         <div class="col-6 flex-box">
                             <div class="row">
-                                <a href="{{ route('user.profile', ['id' => $user->getAttribute('id')]) }}">
+                                <a href="{{ route('user.profile', ['id' => $post->user->getAttribute('id')]) }}">
                                     <img class="user_avatar"
                                          src="{{ $post->get_user()->getAvatarUrl() }}"
                                          alt="">
@@ -68,7 +68,7 @@
                             <div class="ml10">
                                 <div class="row halfHeight">
                                     <div class="fs-5">
-                                        {{ $post->get_user()['username'] }}
+                                        {{ $post->user->getAttribute('username') }}
                                     </div>
                                 </div>
                                 <div class="row halfHeight">
