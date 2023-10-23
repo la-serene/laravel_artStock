@@ -91,10 +91,12 @@
                     </div>
                     <div id="reactionZone" class="row border-bottom">
                         <div class="p-3 pt-2 pb-2">
-                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0" data-post-id="{{ $post->getAttribute('id') }}">
+                            <button id="btn-upvote" class="btn btn-outline-white color-white btn-hover p-1 m-0"
+                                    data-post-id="{{ $post->getAttribute('id') }}">
                                 <i class="fa-solid fa-circle-arrow-up color-black fs20"></i>
                             </button>
-                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0" data-post-id="{{ $post->getAttribute('id') }}">
+                            <button id="btn-downvote" class="btn btn-outline-white color-white btn-hover p-0 m-0"
+                                    data-post-id="{{ $post->getAttribute('id') }}">
                                 <i class="fa-solid fa-circle-arrow-down color-black fs20"></i>
                             </button>
                             <span id="quinxCount-show" class="p-1">
@@ -110,13 +112,13 @@
                     @endphp
                     @foreach($comments as $comment)
                         <div class="row p-1 m-1 mx-0">
-                            <a href="{{ route('user.profile', ['id' => $comment->user->getAttribute('id')]) }}" class="block">
-                                <div class="col-2 px-0 text-center">
+                            <div class="col-2 px-0 text-center">
+                                <a href="{{ route('user.profile', ['id' => $comment->user->getAttribute('id')]) }}">
                                     <img class="user_avatar w40 h40"
                                          src="{{ $comment->user->getAvatarUrl() }}"
                                          alt="">
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                             <div class="col-10 p-0">
                                 <div class="card comment-block">
                                     <div class="card-body px-3 py-1">
